@@ -14,7 +14,7 @@ public class Cliente {
     public String nome;
     public int    idade;
     public String cpf;
-    public String telefone;
+    
 
     public String cidade;
     public String UF;
