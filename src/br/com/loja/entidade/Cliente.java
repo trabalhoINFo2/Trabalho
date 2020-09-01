@@ -4,16 +4,12 @@
  * and open the template in the editor.
  */
 package br.com.loja.entidade;
-
-/**
- *
- * @author Usuario
- */
 public class Cliente {
 
     public String nome;
     public int    idade;
     public String cpf;
+    public String telefone;
     
 
     public String cidade;
