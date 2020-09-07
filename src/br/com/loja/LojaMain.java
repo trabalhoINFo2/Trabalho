@@ -17,8 +17,7 @@ public class LojaMain {
     public static void main(String[] args) {
         Menuprincipal menu = new Menuprincipal();
         menu.executar();
-        int meupau;
-        int suruba;
+       
     }
 
 }
