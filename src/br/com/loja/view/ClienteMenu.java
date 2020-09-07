@@ -37,6 +37,8 @@ class ClienteMenu {
             System.out.println("========================");
 
             if (menu.length == 0) {
+                ClienteInserir tela = new ClienteInserir();
+                tela.executar();
             } else if (menu.length == 1) {
             } else if (menu.length == 2) {
             } else if (menu.length == 3) {
