@@ -22,7 +22,7 @@ class ClienteMenu {
         while (opc != menu.length) {
 
             System.out.println("========================");
-            System.out.println("  Cadastro de Clientes  ");
+            System.out.println("    Menu de Clientes    ");
             System.out.println("========================");
             for (int i = 0; i < menu.length; i++) {
                 System.out.println(i + " - " + menu[i]);
