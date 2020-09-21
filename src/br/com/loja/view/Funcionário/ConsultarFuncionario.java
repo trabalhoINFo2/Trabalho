@@ -9,6 +9,6 @@ package br.com.loja.view.Funcionário;
  *
  * @author Usuario
  */
-public class ConsultarMenu {
+public class ConsultarFuncionario {
     
 }
