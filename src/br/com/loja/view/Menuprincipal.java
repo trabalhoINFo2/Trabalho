@@ -5,6 +5,7 @@
  */
 package br.com.loja.view;
 
+import br.com.loja.view.Cliente.ClienteMenu;
 import java.util.Scanner;
 
 /**
@@ -17,7 +18,7 @@ public class Menuprincipal {
         Scanner sci = new Scanner(System.in);
         Scanner scs = new Scanner(System.in);
 
-        String[] menu = new String[]{"Cliente"};
+        String[] menu = new String[]{"Cliente, Funcionário"};
         int op = 0;
 
         while (op != menu.length) {

@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.loja.view;
+package br.com.loja.view.Cliente;
 
 /**
  *
  * @author Usuario
  */
-public class ClienteExcluir {
+public class ConsultarClienteCod {
     void executar(){
     
     }

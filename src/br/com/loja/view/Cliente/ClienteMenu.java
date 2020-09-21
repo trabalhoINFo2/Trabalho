@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.loja.view;
+package br.com.loja.view.Cliente;
 
 import java.util.Scanner;
 
@@ -11,9 +11,9 @@ import java.util.Scanner;
  *
  * @author Usuario
  */
-class ClienteMenu {
+public class ClienteMenu {
 
-    void executar() {
+    public void executar() {
         Scanner sci = new Scanner(System.in);
 
         String[] menu = new String[]{"Inserir", "Consultar", "Deletar", "Alterar"};
