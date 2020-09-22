@@ -16,7 +16,8 @@ public class ClienteMenu {
     public void executar() {
         Scanner sci = new Scanner(System.in);
 
-        String[] menu = new String[]{"Inserir", "Consultar", "Deletar", "Alterar"};
+        String[] menu = new String[]{"Inserir", "ConsultarClientePorCod", "ConsultarTodos",
+            "Deletar", "Alterar"};
         int opc = 0;
 
         while (opc != menu.length) {
@@ -37,7 +38,7 @@ public class ClienteMenu {
             System.out.println("========================");
 
             if (opc == 0) {
-                
+
                 ClienteInserir tela = new ClienteInserir();
                 tela.executar();
             } else if (menu.length == 1) {
@@ -45,14 +46,32 @@ public class ClienteMenu {
             } else if (menu.length == 3) {
             } else if (menu.length == 4) {
                 break;
+            } else if (opc == 1) {
+
+                ConsultarClientePorCod tela = new ConsultarClientePorCod();
+                tela.executar();
+            } else if (menu.length == 1) {
+            } else if (menu.length == 2) {
+            } else if (menu.length == 3) {
+            } else if (menu.length == 4) {
+                break;
+
+            } else if (opc == 2) {
+                ConsultarTodos tela = new ConsultarTodos();
+                tela.executar();
+            } else if (menu.length == 1) {
+            } else if (menu.length == 2) {
+            } else if (menu.length == 3) {
+            } else if (menu.length == 4) {
+                break;
             }
+
             if (opc < 0 || opc > menu.length) {
                 System.out.println("X=X=X=X=X=X=X=X=X=X=X=X=");
                 System.out.println("X    Opção inválida    X");
                 System.out.println("X=X=X=X=X=X=X=X=X=X=X=X=");
             }
-            
+
         }
     }
-
 }
