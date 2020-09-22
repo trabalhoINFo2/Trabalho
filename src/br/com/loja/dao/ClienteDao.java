@@ -12,5 +12,6 @@ public class ClienteDao {
     c.setCod(proximoCod);
     proximoCod ++;
     bd.add(c);
+    //inserir
     }
 }

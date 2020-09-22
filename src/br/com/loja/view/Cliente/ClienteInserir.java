@@ -56,5 +56,6 @@ public class ClienteInserir {
         
         ClienteDao cDao = new ClienteDao();
         cDao.inserir(c);
+        
     }
 }
