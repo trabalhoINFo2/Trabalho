@@ -46,6 +46,35 @@ public class FuncionarioDao {
         return bd;
     }
 
+    public void excluir(int codigo) {
+       Funcionario ret = null;
+
+        for (int i = 0; i < bd.size(); i++) {
+            Funcionario c = bd.get(i);
+
+            if (c.getCodigo() == codigo) {
+              bd.remove(i);
+              break;
+            }
+
+        }
+
+       
+    }
+
+    public void alterar(Funcionario c) {
+  for (int i = 0; i < bd.size(); i++) {
+            Funcionario auxiliar = bd.get(i);
+
+            if (auxiliar.getCodigo() == c.getCodigo()) {
+              bd.remove(i);
+              bd.add(c);
+              break;
+            }
+
+        }
+    }
+
     
     
   
