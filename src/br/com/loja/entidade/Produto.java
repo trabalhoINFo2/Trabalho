@@ -3,14 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.loja.view.Produto;
+package br.com.loja.entidade;
 
 /**
  *
  * @author Usuario
  */
-public class ProdutoAlterar {
-    void executar(){
+public class Produto {
     
-    }
+    public String tipo;
+    public String tamanho;
+    public String material;
+    
+    
+    
 }

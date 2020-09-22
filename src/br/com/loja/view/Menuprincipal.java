@@ -18,7 +18,8 @@ public class Menuprincipal {
         Scanner sci = new Scanner(System.in);
         Scanner scs = new Scanner(System.in);
 
-        String[] menu = new String[]{"Cliente, Funcionário"};
+        String[] menu = new String[]{"Cliente", "Funcionário", "Produto"};
+        
         int op = 0;
 
         while (op != menu.length) {
@@ -43,6 +44,10 @@ public class Menuprincipal {
                 ClienteMenu tela = new ClienteMenu();
                 tela.executar();
 
+            }else if(op == 1){
+            
+            }else if(op == 2){
+            
             } else if (op < 0 || op > menu.length) {
                 System.out.println("X=X=X=X=X=X=X=X=X=X=X=X=");
                 System.out.println("X    Opção inválida    X");

@@ -10,5 +10,7 @@ package br.com.loja.view.Produto;
  * @author Usuario
  */
 public class ProdutoInserir {
+    void executar(){
     
+    }
 }
