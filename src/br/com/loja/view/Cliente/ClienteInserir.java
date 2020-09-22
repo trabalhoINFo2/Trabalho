@@ -1,17 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.loja.view.Cliente;
 
-/**
- *
- * @author Usuario
- */
+import java.util.Scanner;
+
 public class ClienteInserir {
-    
-    void executar(){
-    
+
+    Scanner sci = new Scanner(System.in);
+    Scanner scs = new Scanner(System.in);
+
+    void executar() {
+        System.out.println("");
+        System.out.println("----------------------");
+        System.out.println("  Inserir Cliente  ");
+        System.out.println("----------------------");
+        System.out.println("Informe por favor os dados do cliente.");
+        System.out.print("Nome Completo: ");
+        String nome = scs.nextLine();
+
+        System.out.print("Idade: ");
+        String idade = sci.nextLine();
+
+        System.out.print("CPf: ");
+        String cpf = sci.nextLine();
+
+        System.out.print("Telefone: ");
+        String telefone = sci.nextLine();
+
+        System.out.print("Cidade: ");
+        String cidade = sci.nextLine();
+
+        System.out.print("Estado(UF): ");
+        String uf = sci.nextLine();
+
+        System.out.print("Bairro: ");
+        String bairro = sci.nextLine();
+
+        System.out.print("CEP: ");
+        String cep = sci.nextLine();
+
+        System.out.print("Número: ");
+        String número = sci.nextLine();
+        
+        System.out.println("Confirmar inserção? [S(sim)/N(não)]");
     }
 }
