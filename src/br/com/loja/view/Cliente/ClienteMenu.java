@@ -51,7 +51,7 @@ public class ClienteMenu {
                 System.out.println("X    Opção inválida    X");
                 System.out.println("X=X=X=X=X=X=X=X=X=X=X=X=");
             }
-            int a;
+            
         }
     }
 
