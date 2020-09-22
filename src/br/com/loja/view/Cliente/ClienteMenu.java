@@ -36,7 +36,7 @@ public class ClienteMenu {
 
             System.out.println("========================");
 
-            if (menu.length == 0) {
+            if (opc == 0) {
                 
                 ClienteInserir tela = new ClienteInserir();
                 tela.executar();
