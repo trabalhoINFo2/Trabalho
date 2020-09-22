@@ -10,5 +10,9 @@ package br.com.loja.view.Funcionário;
  * @author Usuario
  */
 public class FuncionarioAlterar {
+
+    void executar() {
+    
+    }
     
 }

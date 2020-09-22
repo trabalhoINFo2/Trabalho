@@ -6,6 +6,7 @@
 package br.com.loja.view;
 
 import br.com.loja.view.Cliente.ClienteMenu;
+import br.com.loja.view.Funcionário.FuncionarioMenu;
 import br.com.loja.view.Produto.ProdutoMenu;
 import java.util.Scanner;
 
@@ -46,7 +47,8 @@ public class Menuprincipal {
                 tela.executar();
 
             }else if(op == 1){
-            
+                FuncionarioMenu tela = new FuncionarioMenu();
+                tela.executar();
             }else if(op == 2){
                 
                 ProdutoMenu tela = new ProdutoMenu();
