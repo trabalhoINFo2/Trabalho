@@ -41,11 +41,14 @@ public class ClienteMenu {
 
                 ClienteInserir tela = new ClienteInserir();
                 tela.executar();
-            }else if (opc == 1) {
+            } else if ((opc < 0) || (opc > menu.length)) {
+                System.out.println("Opção inválida!");
+                
+            } else if (opc == 1) {
 
                 ConsultarClientePorCod tela = new ConsultarClientePorCod();
                 tela.executar();
-            }else if (opc == 2) {
+            } else if (opc == 2) {
                 ConsultarTodos tela = new ConsultarTodos();
                 tela.executar();
             }

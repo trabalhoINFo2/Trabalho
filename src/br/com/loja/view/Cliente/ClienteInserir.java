@@ -41,7 +41,7 @@ public class ClienteInserir {
 
         System.out.print("Número: ");
         String número = sci.nextLine();
-        
+
         System.out.println("Confirmar inserção? [S(sim)/N(não)]");
         String conf = scs.nextLine();
         if (conf.equalsIgnoreCase("S"));
@@ -53,9 +53,10 @@ public class ClienteInserir {
         c.setUF(uf);
         c.setBairro(bairro);
         c.setCEP(cep);
-        
+
         ClienteDao cDao = new ClienteDao();
         cDao.inserir(c);
-        
+
     }
+
 }

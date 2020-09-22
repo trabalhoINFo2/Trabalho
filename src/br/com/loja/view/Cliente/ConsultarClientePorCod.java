@@ -40,7 +40,7 @@ public class ConsultarClientePorCod {
             System.out.print("Número: " + c.getNumero());
 
         } else {
-            System.out.println("Cliente com esse código " + cod + " não existe!");
+            System.out.println("Cliente com o código " + cod + " não existe!");
         }
     }
 }
