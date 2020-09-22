@@ -6,6 +6,7 @@
 package br.com.loja.view;
 
 import br.com.loja.view.Cliente.ClienteMenu;
+import br.com.loja.view.Produto.ProdutoMenu;
 import java.util.Scanner;
 
 /**
@@ -47,8 +48,12 @@ public class Menuprincipal {
             }else if(op == 1){
             
             }else if(op == 2){
-            
+                
+                ProdutoMenu tela = new ProdutoMenu();
+                tela.executar();
+                
             } else if (op < 0 || op > menu.length) {
+                
                 System.out.println("X=X=X=X=X=X=X=X=X=X=X=X=");
                 System.out.println("X    Opção inválida    X");
                 System.out.println("X=X=X=X=X=X=X=X=X=X=X=X=");

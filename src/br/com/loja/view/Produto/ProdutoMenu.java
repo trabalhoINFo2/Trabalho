@@ -40,12 +40,18 @@ public class ProdutoMenu {
                 ProdutoInserir tela = new ProdutoInserir();
                 tela.executar();
             } else if (menu.length == 1) {
+                ProdutoExcluir tela = new ProdutoExcluir();
+                tela.executar();
             } else if (menu.length == 2) {
+                ProdutoAlterar tela = new ProdutoAlterar();
+                tela.executar();
             } else if (menu.length == 3) {
+                ProdutoInserir tela = new ProdutoInserir();
+                tela.executar();
             } else if (menu.length == 4) {
-                break;
-            }
-            if (opc < 0 || opc > menu.length) {
+                ProdutoInserir tela = new ProdutoInserir();
+                tela.executar();
+            }if (opc < 0 || opc > menu.length) {
                 System.out.println("X=X=X=X=X=X=X=X=X=X=X=X=");
                 System.out.println("X    Opção inválida    X");
                 System.out.println("X=X=X=X=X=X=X=X=X=X=X=X=");
