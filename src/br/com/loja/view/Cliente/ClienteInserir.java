@@ -1,5 +1,6 @@
 package br.com.loja.view.Cliente;
 
+import br.com.loja.entidade.Cliente;
 import java.util.Scanner;
 
 public class ClienteInserir {
@@ -41,5 +42,15 @@ public class ClienteInserir {
         String número = sci.nextLine();
         
         System.out.println("Confirmar inserção? [S(sim)/N(não)]");
+        String conf = scs.nextLine();
+        if (conf.equalsIgnoreCase("S"));
+        Cliente c = new Cliente();
+        c.setNome(nome);
+        c.setCpf(cpf);
+        c.setTelefone(telefone);
+        c.setCidade(cidade);
+        c.setUF(uf);
+        c.setBairro(bairro);
+        c.setCEP(cep);
     }
 }
