@@ -56,12 +56,12 @@ public class ProdutoMenu {
 
             } else if (opc == 3) {
 
-                ProdutoInserir tela = new ProdutoInserir();
+                ConsultarProduto tela = new ConsultarProduto();
                 tela.executar();
 
             } else if (opc == 4) {
 
-                ProdutoInserir tela = new ProdutoInserir();
+                ConsultarProdutoCod tela = new ConsultarProdutoCod();
                 tela.executar();
 
             }

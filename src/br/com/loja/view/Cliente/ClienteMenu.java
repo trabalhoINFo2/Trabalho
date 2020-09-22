@@ -41,29 +41,13 @@ public class ClienteMenu {
 
                 ClienteInserir tela = new ClienteInserir();
                 tela.executar();
-            } else if (menu.length == 1) {
-            } else if (menu.length == 2) {
-            } else if (menu.length == 3) {
-            } else if (menu.length == 4) {
-                break;
-            } else if (opc == 1) {
+            }else if (opc == 1) {
 
                 ConsultarClientePorCod tela = new ConsultarClientePorCod();
                 tela.executar();
-            } else if (menu.length == 1) {
-            } else if (menu.length == 2) {
-            } else if (menu.length == 3) {
-            } else if (menu.length == 4) {
-                break;
-
-            } else if (opc == 2) {
+            }else if (opc == 2) {
                 ConsultarTodos tela = new ConsultarTodos();
                 tela.executar();
-            } else if (menu.length == 1) {
-            } else if (menu.length == 2) {
-            } else if (menu.length == 3) {
-            } else if (menu.length == 4) {
-                break;
             }
 
             if (opc < 0 || opc > menu.length) {

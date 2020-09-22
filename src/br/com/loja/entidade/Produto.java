@@ -11,10 +11,24 @@ package br.com.loja.entidade;
  */
 public class Produto {
     
-     String tipo;
-     String tamanho;
-     String material;
-    
-    
+     private int cod;
+     private String tipo;
+
+    public int getCod() {
+        return cod;
+    }
+
+    public void setCod(int cod) {
+        this.cod = cod;
+    }
+
+     
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
     
 }

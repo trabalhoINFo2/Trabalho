@@ -36,19 +36,19 @@ public class FuncionarioMenu {
 
             System.out.println("========================");
 
-            if (menu.length == 0) {
+            if (opc == 0) {
                 FuncionarioInserir tela = new FuncionarioInserir();
                 tela.executar();
-            } else if (menu.length == 1) {
+            } else if (opc == 1) {
                 FuncionarioExcluir tela = new FuncionarioExcluir();
                 tela.executar();
-            } else if (menu.length == 2) {
+            } else if (opc == 2) {
                 FuncionarioAlterar tela = new FuncionarioAlterar();
                 tela.executar();
-            } else if (menu.length == 3) {
+            } else if (opc == 3) {
                 FuncionarioInserir tela = new FuncionarioInserir();
                 tela.executar();
-            } else if (menu.length == 4) {
+            } else if (opc == 4) {
                 FuncionarioInserir tela = new FuncionarioInserir();
                 tela.executar();
             }
