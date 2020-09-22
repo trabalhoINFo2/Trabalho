@@ -44,18 +44,19 @@ public class ClienteInserir {
 
         System.out.println("Confirmar inserção? [S(sim)/N(não)]");
         String conf = scs.nextLine();
-        if (conf.equalsIgnoreCase("S"));
-        Cliente c = new Cliente();
-        c.setNome(nome);
-        c.setCpf(cpf);
-        c.setTelefone(telefone);
-        c.setCidade(cidade);
-        c.setUF(uf);
-        c.setBairro(bairro);
-        c.setCEP(cep);
+        if (conf.equalsIgnoreCase("S")){
+            Cliente c = new Cliente();
+            c.setNome(nome);
+            c.setCpf(cpf);
+            c.setTelefone(telefone);
+            c.setCidade(cidade);
+            c.setUF(uf);
+            c.setBairro(bairro);
+            c.setCEP(cep);
 
-        ClienteDao cDao = new ClienteDao();
-        cDao.inserir(c);
+            ClienteDao cDao = new ClienteDao();
+            cDao.inserir(c);
+        }
 
     }
 

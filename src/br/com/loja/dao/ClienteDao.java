@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ClienteDao {
 
-    private final List<Cliente> bd = new ArrayList<>();
+    private static final List<Cliente> bd = new ArrayList<>();
     private static int proximoCod = 1;
 
     public void inserir(Cliente c) {
