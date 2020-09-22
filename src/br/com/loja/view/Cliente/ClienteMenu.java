@@ -37,6 +37,7 @@ public class ClienteMenu {
             System.out.println("========================");
 
             if (menu.length == 0) {
+                
                 ClienteInserir tela = new ClienteInserir();
                 tela.executar();
             } else if (menu.length == 1) {
@@ -50,6 +51,7 @@ public class ClienteMenu {
                 System.out.println("X    Opção inválida    X");
                 System.out.println("X=X=X=X=X=X=X=X=X=X=X=X=");
             }
+            int a;
         }
     }
 
