@@ -7,7 +7,7 @@ package br.com.loja.view.Produto;
 
 /**
  *
- * @author Usuario
+ * @author Guilherme
  */
 public class ConsultarProduto {
     void executar(){

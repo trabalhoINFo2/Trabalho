@@ -7,13 +7,13 @@ package br.com.loja.entidade;
 
 /**
  *
- * @author Usuario
+ * @author Guilherme
  */
 public class Produto {
     
-    public String tipo;
-    public String tamanho;
-    public String material;
+     String tipo;
+     String tamanho;
+     String material;
     
     
     

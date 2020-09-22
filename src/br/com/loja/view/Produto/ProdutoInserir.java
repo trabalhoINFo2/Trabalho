@@ -5,12 +5,42 @@
  */
 package br.com.loja.view.Produto;
 
+import br.com.loja.entidade.Produto;
+import java.util.Scanner;
+
 /**
  *
- * @author Usuario
+ * @author Guilherme
  */
 public class ProdutoInserir {
-    void executar(){
+    Scanner sci = new Scanner(System.in);
     
+    Scanner scs = new Scanner(System.in);
+    void executar() {
+        
+        System.out.println("=============================");
+        System.out.println("==== Inserção de produto ====");
+        System.out.println("=============================");
+        System.out.println("Favor informar os dados do produto: ");
+        
+        System.out.println("Tipo: ");
+        String tipo= scs.nextLine();
+        
+        System.out.println("Tamanho: ");
+        String tamanho= scs.nextLine();
+        
+        System.out.println("Material: ");
+        String material= scs.nextLine();
+        
+        System.out.println("Confirma a inserção de dados?");
+        System.out.println("[S/N]");
+        
+        String conf = scs.nextLine();
+        
+        if(conf.equalsIgnoreCase("S")){
+            Produto p = new Produto();
+            
+            
+        }
     }
 }

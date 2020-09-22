@@ -39,27 +39,27 @@ public class ProdutoMenu {
 
             System.out.println("========================");
 
-            if (menu.length == 0) {
+            if (opc == 0) {
 
                 ProdutoInserir tela = new ProdutoInserir();
                 tela.executar();
 
-            } else if (menu.length == 1) {
+            } else if (opc == 1) {
 
                 ProdutoExcluir tela = new ProdutoExcluir();
                 tela.executar();
 
-            } else if (menu.length == 2) {
+            } else if (opc == 2) {
 
                 ProdutoAlterar tela = new ProdutoAlterar();
                 tela.executar();
 
-            } else if (menu.length == 3) {
+            } else if (opc == 3) {
 
                 ProdutoInserir tela = new ProdutoInserir();
                 tela.executar();
 
-            } else if (menu.length == 4) {
+            } else if (opc == 4) {
 
                 ProdutoInserir tela = new ProdutoInserir();
                 tela.executar();

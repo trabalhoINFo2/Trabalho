@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Usuario
+ * @author Guliherme, Higor, Hian
  */
 public class Menuprincipal {
 

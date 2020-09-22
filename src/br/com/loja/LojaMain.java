@@ -10,7 +10,7 @@ import br.com.loja.view.Menuprincipal;
 
 /**
  *
- * @author Usuario
+ * @author Guilherme, Higor, Hian
  */
 public class LojaMain {
 
