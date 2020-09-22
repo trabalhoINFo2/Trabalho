@@ -1,5 +1,6 @@
 package br.com.loja.view.Cliente;
 
+import br.com.loja.dao.ClienteDao;
 import br.com.loja.entidade.Cliente;
 import java.util.Scanner;
 
@@ -52,5 +53,8 @@ public class ClienteInserir {
         c.setUF(uf);
         c.setBairro(bairro);
         c.setCEP(cep);
+        
+        ClienteDao cDao = new ClienteDao();
+        cDao.inserir(c);
     }
 }

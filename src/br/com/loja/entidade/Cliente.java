@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package br.com.loja.entidade;
+
 public class Cliente {
 
     public String getNome() {
@@ -78,12 +79,20 @@ public class Cliente {
         this.numero = numero;
     }
 
+    public int getCod() {
+        return cod;
+    }
+
+    public void setCod(int cod) {
+        this.cod = cod;
+    }
     private String nome;
-    private int    idade;
+    private int idade;
     private String cpf;
     private String telefone;
-    
 
+  
+    private int cod;
     private String cidade;
     private String UF;
     private String bairro;
