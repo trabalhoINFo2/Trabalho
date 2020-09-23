@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class ProdutoDao {
 
-    private List<Produto> BDProduto = new ArrayList();
+    private static List<Produto> BDProduto = new ArrayList();
     private static int proccod = 1;
 
     public void inserir(ProdutoInserir p) {
