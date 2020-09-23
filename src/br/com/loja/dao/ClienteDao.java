@@ -35,4 +35,30 @@ public class ClienteDao {
     public List<Cliente> consultartodos() {
         return bd;
     }
+
+    public void excluir(int cod) {
+        for (int i = 0; i < bd.size(); i++) {
+            Cliente c = bd.get(i);
+
+            if (c.getCod() == cod) {
+                bd.remove(i);
+                break;
+            }
+
+        }
+
+    }
+
+    public void alterar(Cliente c) {
+        for (int i = 0; i < bd.size(); i++) {
+            Cliente cAux = bd.get(i);
+
+            if (cAux.getCod() == c.getCod()) {
+                bd.add(c);
+                break;
+            }
+
+        }
+    }
+
 }

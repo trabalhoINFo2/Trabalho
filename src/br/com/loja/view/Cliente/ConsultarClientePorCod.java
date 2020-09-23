@@ -21,23 +21,23 @@ public class ConsultarClientePorCod {
         Cliente c = cDao.consultarclienteporcod(cod);
 
         if (c != null) {
-            System.out.print("Nome Completo: " + c.getNome());
+            System.out.println("Nome Completo: " + c.getNome());
 
-            System.out.print("Idade: " + c.getIdade());
+            System.out.println("Idade: " + c.getIdade());
 
-            System.out.print("CPf: " + c.getCpf());
+            System.out.println("CPf: " + c.getCpf());
 
-            System.out.print("Telefone: " + c.getTelefone());
+            System.out.println("Telefone: " + c.getTelefone());
 
-            System.out.print("Cidade: " + c.getCidade());
+            System.out.println("Cidade: " + c.getCidade());
 
-            System.out.print("Estado(UF): " + c.getUF());
+            System.out.println("Estado(UF): " + c.getUF());
 
-            System.out.print("Bairro: " + c.getBairro());
+            System.out.println("Bairro: " + c.getBairro());
 
-            System.out.print("CEP: " + c.getCEP());
+            System.out.println("CEP: " + c.getCEP());
 
-            System.out.print("Número: " + c.getNumero());
+            System.out.println("Número: " + c.getNumero());
 
         } else {
             System.out.println("Cliente com o código " + cod + " não existe!");

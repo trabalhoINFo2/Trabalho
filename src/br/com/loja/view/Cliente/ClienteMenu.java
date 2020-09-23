@@ -43,14 +43,23 @@ public class ClienteMenu {
                 tela.executar();
             } else if ((opc < 0) || (opc > menu.length)) {
                 System.out.println("Opção inválida!");
-                
-            } else if (opc == 1) {
 
+            } else if (opc == 1) {
                 ConsultarClientePorCod tela = new ConsultarClientePorCod();
                 tela.executar();
+                
             } else if (opc == 2) {
                 ConsultarTodos tela = new ConsultarTodos();
                 tela.executar();
+                
+            } else if (opc == 3) {
+                ClienteExcluir tela = new ClienteExcluir();
+                tela.executar();
+
+            } else if (opc == 4) {
+                ClienteAlterar tela = new ClienteAlterar();
+                tela.executar();
+
             }
 
             if (opc < 0 || opc > menu.length) {
