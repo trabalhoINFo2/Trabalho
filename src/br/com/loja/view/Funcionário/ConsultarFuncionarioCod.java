@@ -20,9 +20,9 @@ public class ConsultarFuncionarioCod {
 
     void executar() {
         System.out.println("");
-        System.out.println("consulta de funcionario");
+        System.out.println("Consulta de funcionário.");
         System.out.println("");
-        System.out.println("favor informar o codigo do funcionario");
+        System.out.println("Favor informar o código do funcionário.");
         int codigo = sci.nextInt();
 
         FuncionarioDao cDao = new FuncionarioDao();
@@ -30,17 +30,17 @@ public class ConsultarFuncionarioCod {
         Funcionario c = cDao.consultar(codigo);
 
         if (c != null) {
-            System.out.println("cod:   " + c.getCodigo());
-            System.out.println("nome:   " + c.getNome());
-            System.out.println("idade:   " + c.getIdade());
-            System.out.println("telefone:   " + c.getTelefone());
-            System.out.println("uf:   " + c.getUF());
-            System.out.println("cidade:   " + c.getCidade());
-            System.out.println("bairro:   " + c.getBairro());
-             System.out.println("cpf:   "+c.getCpf());
+            System.out.println("Código :   " + c.getCodigo());
+            System.out.println("Nome Completo :   " + c.getNome());
+            System.out.println("Idade :   " + c.getIdade());
+            System.out.println("Telefone :   " + c.getTelefone());
+            System.out.println("UF :   " + c.getUF());
+            System.out.println("Cidade :   " + c.getCidade());
+            System.out.println("Bairro :   " + c.getBairro());
+             System.out.println("CPF :   "+c.getCpf());
              
         }else {
-            System.out.println("funcionario do "+codigo+"nao existe na base de dados");
+            System.out.println("Funcionário com o "+codigo+" não existe na base de dados.");
         }
 
     }

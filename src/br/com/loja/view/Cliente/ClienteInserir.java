@@ -3,7 +3,10 @@ package br.com.loja.view.Cliente;
 import br.com.loja.dao.ClienteDao;
 import br.com.loja.entidade.Cliente;
 import java.util.Scanner;
-
+/**
+ *
+ * @author Higor
+ */
 public class ClienteInserir {
 
     Scanner sci = new Scanner(System.in);

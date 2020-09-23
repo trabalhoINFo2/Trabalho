@@ -3,7 +3,10 @@ package br.com.loja.view.Cliente;
 import br.com.loja.dao.ClienteDao;
 import br.com.loja.entidade.Cliente;
 import java.util.List;
-
+/**
+ *
+ * @author Higor
+ */
 class ConsultarTodos {
 
     void executar() {
@@ -42,6 +45,7 @@ class ConsultarTodos {
         } else {
             System.out.println("Não há Clientes na base de dados! ");
             System.out.println("---------------------------------");
+
         }
 
     }
