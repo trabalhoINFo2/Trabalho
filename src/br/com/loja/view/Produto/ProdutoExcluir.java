@@ -5,12 +5,48 @@
  */
 package br.com.loja.view.Produto;
 
+import br.com.loja.dao.ProdutoDao;
+import br.com.loja.entidade.Produto;
+import java.util.Scanner;
+
 /**
  *
  * @author Guilherme
  */
 public class ProdutoExcluir {
-    void executar(){
-    
+
+    void executar() {
+        
+        Scanner sci = new Scanner(System.in);
+        Scanner scs = new Scanner(System.in);
+        
+        System.out.println("");
+        System.out.println("----------------------");
+        System.out.println("  Excluir Produto   ");
+        System.out.println("----------------------");
+        System.out.println("Informe por favor o código do produto que deseja excluir.");
+        
+        int cod = sci.nextInt();
+        
+        ProdutoDao pDao = new ProdutoDao();
+        Produto p = pDao.ConsultarProdutoCod(cod);
+        
+         if (p != null) {
+            System.out.println("Tipo do produto: " + p.getTipo());
+
+
+            System.out.println("Deseja realmente excluir este cliente? [S(sim)/N(não)]");
+            
+            String conf = scs.nextLine();
+
+            if (conf.equalsIgnoreCase("S")) {
+
+                pDao.excluir(cod);
+
+            } else {
+                System.out.println("Produto com o código " + cod + " não existe!");
+            }
+        }
+        
     }
 }

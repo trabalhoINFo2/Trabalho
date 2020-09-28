@@ -23,4 +23,16 @@ public class ProdutoDao {
     public void inserir(ProdutoInserir p) {
 
     }
+
+    public Produto ConsultarProdutoCod(int cod) {
+        Produto ret = null;
+    }
+
+    public void excluir(int cod) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<Produto> ConsultarProduto() {
+        return BDProduto;
+    }
 }

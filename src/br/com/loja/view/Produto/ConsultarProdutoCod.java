@@ -5,12 +5,39 @@
  */
 package br.com.loja.view.Produto;
 
+import br.com.loja.dao.ProdutoDao;
+import br.com.loja.entidade.Produto;
+import java.util.Scanner;
+
 /**
  *
  * @author Guilherme
  */
 public class ConsultarProdutoCod {
+    
+    Scanner sci = new Scanner(System.in);
+    Scanner scs = new Scanner(System.in);
+    
     void executar(){
+        
+        System.out.println("");
+        System.out.println("----------------------");
+        System.out.println("  Consultar Cliente  ");
+        System.out.println("----------------------");
+        System.out.println("Informe por favor o código do cliente.");
+        
+        int cod = sci.nextInt();
+        
+        ProdutoDao pDao = new ProdutoDao();
+        Produto p = pDao.ConsultarProdutoCod(cod);
+        
+        if (p != null) {
+            
+            System.out.println("Tipod do produto: " + p.getTipo());
+
+        } else {
+            System.out.println("Produto com o código " + cod + " não existe!");
+        }
     
     }
 }
