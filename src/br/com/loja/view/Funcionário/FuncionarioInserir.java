@@ -62,7 +62,7 @@ public class FuncionarioInserir {
         
          System.out.println("Confirmar inserção? [S(sim)/N(não)]");
         String conf = scs.nextLine();
-        if (conf.equalsIgnoreCase("S"));
+        if (conf.equalsIgnoreCase("S")){
         Funcionario c = new Funcionario();
         c.setNome(nome);
         c.setBairro(bairro);
@@ -79,7 +79,7 @@ public class FuncionarioInserir {
         FuncionarioDao cDao= new FuncionarioDao();
         cDao.inserir(c);
         
-        
+        }
         
     }
 }
