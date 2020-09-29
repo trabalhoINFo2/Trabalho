@@ -54,21 +54,24 @@ public class FuncionarioInserir {
 
         System.out.println("Confirmar inserção? [S(sim)/N(não)]");
         String conf = scs.nextLine();
-        if (conf.equalsIgnoreCase("S"));
-        {
-            Funcionario f = new Funcionario();
-            f.setNome(nome);
-            f.setBairro(bairro);
-            f.setCEP(conf);
-            f.setCidade(cidade);
-            f.setCpf(conf);
-            f.setNumero(nome);
-            f.setTelefone(conf);
-            f.setUF(uf);
-
-            FuncionarioDao fDao = new FuncionarioDao();
-            fDao.inserir(f);
-        }
-
+        if (conf.equalsIgnoreCase("S")){
+        Funcionario c = new Funcionario();
+        c.setNome(nome);
+        c.setBairro(bairro);
+        c.setCEP(conf);
+        c.setCidade(cidade);
+        c.setCpf(conf);
+        c.setNumero(nome);
+        c.setTelefone(conf);
+        c.setUF(uf);
+        
+        
+        
+        
+        FuncionarioDao cDao= new FuncionarioDao();
+        cDao.inserir(c);
+        
+        } 
+        
     }
 }
