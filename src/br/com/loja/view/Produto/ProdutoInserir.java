@@ -5,6 +5,7 @@
  */
 package br.com.loja.view.Produto;
 
+import br.com.loja.dao.ProdutoDao;
 import br.com.loja.entidade.Produto;
 import java.util.Scanner;
 
@@ -37,6 +38,8 @@ public class ProdutoInserir {
             
             p.setTipo(tipo);
             
+            ProdutoDao pDao = new ProdutoDao();
+            pDao.inserir(p);
         }
     }
 }

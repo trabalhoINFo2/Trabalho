@@ -15,14 +15,14 @@ import java.util.List;
  */
 public class FuncionarioDao {
 
-    private static List<Funcionario> bd = new ArrayList<Funcionario>();
+    private static List<Funcionario> bd = new ArrayList<>();
     private static int proximoCod = 1;
 
-    public void inserir(Funcionario c) {
-        c.setCodigo(proximoCod);
+    public void inserir(Funcionario f) {
+        f.setCodigo(proximoCod);
         proximoCod++;
 
-        bd.add(c);
+        bd.add(f);
 
     }
 
@@ -30,10 +30,10 @@ public class FuncionarioDao {
         Funcionario ret = null;
 
         for (int i = 0; i < bd.size(); i++) {
-            Funcionario c = bd.get(i);
+            Funcionario f = bd.get(i);
 
-            if (c.getCodigo() == codigo) {
-                ret = c;
+            if (f.getCodigo() == codigo) {
+                ret = f;
                 break;
             }
 
@@ -47,7 +47,7 @@ public class FuncionarioDao {
     }
 
     public void excluir(int codigo) {
-       Funcionario ret = null;
+       
 
         for (int i = 0; i < bd.size(); i++) {
             Funcionario c = bd.get(i);

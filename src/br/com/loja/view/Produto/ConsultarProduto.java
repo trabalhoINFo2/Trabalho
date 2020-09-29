@@ -22,10 +22,10 @@ public class ConsultarProduto {
         System.out.println("----------------------");
         
         ProdutoDao pDao = new ProdutoDao();
-        List<Produto> cList = pDao.ConsultarProduto();
+        List<Produto> pList = pDao.ConsultarProduto();
         
-        if (cList.size() > 0) {
-            for (int i = 0; i < cList.size(); i++) {
+        if (pList.size() > 0) {
+            for (int i = 0; i < pList.size(); i++) {
                 Produto p = pList.get(i);
                 System.out.println("Tipo do produto: " + p.getTipo());
 
@@ -33,7 +33,7 @@ public class ConsultarProduto {
 
             }
         } else {
-            System.out.println("Não há Clientes na base de dados! ");
+            System.out.println("Não há Produtos na base de dados! ");
             System.out.println("---------------------------------");
 
         }

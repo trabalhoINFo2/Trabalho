@@ -46,10 +46,10 @@ public class FuncionarioMenu {
                 FuncionarioAlterar tela = new FuncionarioAlterar();
                 tela.executar();
             } else if (opc == 3) {
-                FuncionarioInserir tela = new FuncionarioInserir();
+                ConsultarFuncionarioTodos tela = new ConsultarFuncionarioTodos();
                 tela.executar();
             } else if (opc == 4) {
-                FuncionarioInserir tela = new FuncionarioInserir();
+                ConsultarFuncionarioCod tela = new ConsultarFuncionarioCod();
                 tela.executar();
             }
             if (opc < 0 || opc > menu.length) {

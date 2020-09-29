@@ -2,12 +2,22 @@ package br.com.loja.entidade;
 
 public class Funcionario {
 
+    //dados do Funcioário
+    
     private String nome;
     private int idade;
     private String cpf;
     private String telefone;
     private int codigo;
-
+    
+    //dados do local do Funcionário
+    
+    private String cidade;
+    private String UF;
+    private String bairro;
+    private String CEP;
+    private String numero;
+    
     public int getCodigo() {
         return codigo;
     }
@@ -15,11 +25,7 @@ public class Funcionario {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
-    private String cidade;
-    private String UF;
-    private String bairro;
-    private String CEP;
-    private String numero;
+    
 
     public String getNome() {
         return nome;

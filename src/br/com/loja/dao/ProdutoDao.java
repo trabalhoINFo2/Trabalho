@@ -17,22 +17,57 @@ import java.util.List;
  */
 public class ProdutoDao {
 
-    private static List<Produto> BDProduto = new ArrayList();
+    private static List<Produto> BDProduto = new ArrayList<>();
     private static int proccod = 1;
 
-    public void inserir(ProdutoInserir p) {
+    public void inserir(Produto p) {
+
+        p.setCod(proccod);
+        proccod++;
+        BDProduto.add(p);
 
     }
 
     public Produto ConsultarProdutoCod(int cod) {
         Produto ret = null;
-    }
 
-    public void excluir(int cod) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (int i = 0; i < BDProduto.size(); i++) {
+            Produto p = BDProduto.get(i);
+
+            if (p.getCod() == cod) {
+                ret = p;
+                break;
+            }
+
+        }
+        return ret;
     }
 
     public List<Produto> ConsultarProduto() {
         return BDProduto;
     }
+
+    public void excluir(int cod) {
+        for (int i = 0; i < BDProduto.size(); i++) {
+            Produto p = BDProduto.get(i);
+
+            if (p.getCod() == cod) {
+                BDProduto.remove(i);
+                break;
+            }
+
+        }
+    }
+
+    public void alterar(Produto p) {
+ for (int i = 0; i < BDProduto.size(); i++) {
+            Produto cAux = BDProduto.get(i);
+
+            if (cAux.getCod() == p.getCod()) {
+                BDProduto.add(p);
+                break;
+            }
+
+        }    }
+
 }

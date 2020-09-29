@@ -21,10 +21,10 @@ public class ConsultarProdutoCod {
     void executar(){
         
         System.out.println("");
-        System.out.println("----------------------");
-        System.out.println("  Consultar Cliente  ");
-        System.out.println("----------------------");
-        System.out.println("Informe por favor o código do cliente.");
+        System.out.println("--------------------------------");
+        System.out.println("  Consultar Produto por Código  ");
+        System.out.println("--------------------------------");
+        System.out.println("Informe por favor o código do produto.");
         
         int cod = sci.nextInt();
         
@@ -33,7 +33,7 @@ public class ConsultarProdutoCod {
         
         if (p != null) {
             
-            System.out.println("Tipod do produto: " + p.getTipo());
+            System.out.println("Tipo do produto: " + p.getTipo());
 
         } else {
             System.out.println("Produto com o código " + cod + " não existe!");

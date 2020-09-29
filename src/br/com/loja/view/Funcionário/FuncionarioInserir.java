@@ -18,19 +18,12 @@ public class FuncionarioInserir {
     void executar() {
         Scanner sci = new Scanner(System.in);
         Scanner scs = new Scanner(System.in);
-     
-        
-        
-        
-         System.out.println("");
+
+        System.out.println("");
         System.out.println("----------------------");
         System.out.println("  Inserir funcionario  ");
         System.out.println("----------------------");
         System.out.println("Informe por favor os dados do funcionario .");
-       
-  
-
-        
 
         System.out.println("nome:");
         String nome = scs.nextLine();
@@ -58,28 +51,24 @@ public class FuncionarioInserir {
 
         System.out.println("numero");
         int numero = sci.nextInt();
-        
-        
-         System.out.println("Confirmar inserção? [S(sim)/N(não)]");
+
+        System.out.println("Confirmar inserção? [S(sim)/N(não)]");
         String conf = scs.nextLine();
         if (conf.equalsIgnoreCase("S"));
-        Funcionario c = new Funcionario();
-        c.setNome(nome);
-        c.setBairro(bairro);
-        c.setCEP(conf);
-        c.setCidade(cidade);
-        c.setCpf(conf);
-        c.setNumero(nome);
-        c.setTelefone(conf);
-        c.setUF(uf);
-        
-        
-        
-        
-        FuncionarioDao cDao= new FuncionarioDao();
-        cDao.inserir(c);
-        
-        
-        
+        {
+            Funcionario f = new Funcionario();
+            f.setNome(nome);
+            f.setBairro(bairro);
+            f.setCEP(conf);
+            f.setCidade(cidade);
+            f.setCpf(conf);
+            f.setNumero(nome);
+            f.setTelefone(conf);
+            f.setUF(uf);
+
+            FuncionarioDao fDao = new FuncionarioDao();
+            fDao.inserir(f);
+        }
+
     }
 }
