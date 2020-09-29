@@ -44,15 +44,15 @@ public class FuncionarioAlterar {
              System.out.println("informe o novo nome");
              String novonome=scs.nextLine();
              
-              System.out.println("deseja alterar esse cliente ? [SIM/NAO]");
+              System.out.println("deseja alterar esse cliente ? [SIM[s]/NAO[n]]");
               String confirmacao=scs.nextLine();
-              if (confirmacao.equalsIgnoreCase("sim")) {
+              if (confirmacao.equalsIgnoreCase("S")) {
            c.setNome(novonome);
            cDao.alterar(c);
             }
             
         } else {
-            System.out.println("funcionario do " + codigo + "nao existe na base de dados");
+            System.out.println("funcionario do " + codigo + " nao existe na base de dados");
         }
 
     }

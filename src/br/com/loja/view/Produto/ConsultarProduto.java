@@ -27,6 +27,7 @@ public class ConsultarProduto {
         if (pList.size() > 0) {
             for (int i = 0; i < pList.size(); i++) {
                 Produto p = pList.get(i);
+                System.out.println("Codigo do produto: "+ p.getCod());
                 System.out.println("Tipo do produto: " + p.getTipo());
 
                 System.out.println("---------------------------------");

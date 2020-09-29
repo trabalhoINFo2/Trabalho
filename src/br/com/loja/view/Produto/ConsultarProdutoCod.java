@@ -33,6 +33,7 @@ public class ConsultarProdutoCod {
         
         if (p != null) {
             
+            System.out.println("Codigo do produto: "+ p.getCod());
             System.out.println("Tipo do produto: " + p.getTipo());
 
         } else {

@@ -32,10 +32,10 @@ public class FuncionarioInserir {
         int idade = sci.nextInt();
 
         System.out.println("cpf:");
-        int cpf = sci.nextInt();
+        String cpf = scs.nextLine();
 
         System.out.println("telefone:");
-        int telefone = sci.nextInt();
+        String telefone = scs.nextLine();
 
         System.out.println("cidade:");
         String cidade = scs.nextLine();
@@ -47,7 +47,7 @@ public class FuncionarioInserir {
         String bairro = scs.nextLine();
 
         System.out.println("CEP:");
-        int cep = sci.nextInt();
+        String cep = scs.nextLine();
 
         System.out.println("numero");
         int numero = sci.nextInt();
@@ -55,21 +55,22 @@ public class FuncionarioInserir {
         System.out.println("Confirmar inserção? [S(sim)/N(não)]");
         String conf = scs.nextLine();
         if (conf.equalsIgnoreCase("S")){
-        Funcionario c = new Funcionario();
-        c.setNome(nome);
-        c.setBairro(bairro);
-        c.setCEP(conf);
-        c.setCidade(cidade);
-        c.setCpf(conf);
-        c.setNumero(nome);
-        c.setTelefone(conf);
-        c.setUF(uf);
+        Funcionario f = new Funcionario();
+        f.setNome(nome);
+        f.setIdade(idade);
+        f.setBairro(bairro);
+        f.setCEP(cep);
+        f.setCidade(cidade);
+        f.setCpf(cpf);
+        f.setNumero(nome);
+        f.setTelefone(telefone);
+        f.setUF(uf);
         
         
         
         
         FuncionarioDao cDao= new FuncionarioDao();
-        cDao.inserir(c);
+        cDao.inserir(f);
         
         } 
         
