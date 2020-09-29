@@ -79,7 +79,7 @@ public class FuncionarioInserir {
         FuncionarioDao cDao= new FuncionarioDao();
         cDao.inserir(c);
         
-        }
+        } 
         
     }
 }

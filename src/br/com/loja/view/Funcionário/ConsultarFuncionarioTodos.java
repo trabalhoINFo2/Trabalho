@@ -39,6 +39,8 @@ public class ConsultarFuncionarioTodos {
 
         }else{
             System.out.println("nao ha clientes no banco de dados ");
+              System.out.println("---------------------------------");
+            
         }
 
     }
