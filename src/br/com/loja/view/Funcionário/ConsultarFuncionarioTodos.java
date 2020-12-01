@@ -5,13 +5,13 @@
  */
 package br.com.loja.view.Funcionário;
 
-import br.com.loja.dao.FuncionarioDao;
+import br.com.loja.dao.FuncionarioDaoAnt;
 import br.com.loja.entidade.Funcionario;
 import java.util.List;
 
 /**
  *
- * @author Usuario
+ * @author Hian Linhares
  */
 public class ConsultarFuncionarioTodos {
 
@@ -20,7 +20,7 @@ public class ConsultarFuncionarioTodos {
         System.out.println("consulta de todos os funcionários");
         System.out.println("");
 
-        FuncionarioDao cDao = new FuncionarioDao();
+        FuncionarioDaoAnt cDao = new FuncionarioDaoAnt();
         List<Funcionario> cList = cDao.consultartodos();
 
         if (cList.size() > 0) {

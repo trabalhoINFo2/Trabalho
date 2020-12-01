@@ -6,93 +6,49 @@
 package br.com.loja.dao;
 
 import br.com.loja.entidade.Funcionario;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author Hian
+ * @author Hian Linhares
  */
-public class FuncionarioDao {
+public class FuncionarioDao extends Dao {
 
-    private static List<Funcionario> bd = new ArrayList<>();
-    private static int proximoCod = 1;
+    private String insertSQL
+            = " insert into funcionario " 
+            + " ( nome, cpf,numero, bairro, cidade, uf) "
+            + " values (?, ?, ?, ?, ?, ?)";
 
-    public void inserir(Funcionario f) {
-        f.setCodigo(proximoCod);
-        proximoCod++;
+    public void inserir(Funcionario f) throws SQLException {
 
-        bd.add(f);
+        Connection conn = null;
+        PreparedStatement ps =null;
+        try {
+            conn = getConnection();
+            ps = conn.prepareStatement(insertSQL);
+            
+            ps.setString(1, f.getNome());
+            ps.setString(2, f.getCpf());
+            ps.setString(3, f.getNumero());
+            ps.setString(4, f.getBairro());
+            ps.setString(5, f.getCidade());
+            ps.setString(6, f.getUF());
 
-    }
+            ps.executeUpdate();
 
-    public Funcionario consultar(int codigo) {
-        Funcionario ret = null;
-
-        for (int i = 0; i < bd.size(); i++) {
-            Funcionario f = bd.get(i);
-
-            if (f.getCodigo() == codigo) {
-                ret = f;
-                break;
-            }
-
+        } catch (SQLException ex) {
+            throw ex;
+        } finally {
+            closeps(ps);
+            closeConnection(conn);
         }
 
-        return ret;
     }
-
-    public List<Funcionario> consultartodos() {
-        return bd;
-    }
-
-    public void excluir(int codigo) {
-       
-
-        for (int i = 0; i < bd.size(); i++) {
-            Funcionario c = bd.get(i);
-
-            if (c.getCodigo() == codigo) {
-              bd.remove(i);
-              break;
-            }
-
-        }
-
-       
-    }
-
-    public void alterar(Funcionario c) {
-  for (int i = 0; i < bd.size(); i++) {
-            Funcionario auxiliar = bd.get(i);
-
-            if (auxiliar.getCodigo() == c.getCodigo()) {
-              bd.remove(i);
-              bd.add(c);
-              break;
-            }
-
-        }
-    }
-
-    
-    
-  
-    
-    
-    
-    
-    
-    
-    //turma do pagode
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
+
+

@@ -6,12 +6,16 @@
 package br.com.loja.view.Funcionário;
 
 import br.com.loja.dao.FuncionarioDao;
+import br.com.loja.dao.FuncionarioDaoAnt;
 import br.com.loja.entidade.Funcionario;
+import java.sql.SQLException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author Usuario
+ * @author Hian Linhares
  */
 public class FuncionarioInserir {
 
@@ -54,25 +58,27 @@ public class FuncionarioInserir {
 
         System.out.println("Confirmar inserção? [S(sim)/N(não)]");
         String conf = scs.nextLine();
-        if (conf.equalsIgnoreCase("S")){
-        Funcionario f = new Funcionario();
-        f.setNome(nome);
-        f.setIdade(idade);
-        f.setBairro(bairro);
-        f.setCEP(cep);
-        f.setCidade(cidade);
-        f.setCpf(cpf);
-        f.setNumero(nome);
-        f.setTelefone(telefone);
-        f.setUF(uf);
-        
-        
-        
-        
-        FuncionarioDao cDao= new FuncionarioDao();
-        cDao.inserir(f);
-        
-        } 
-        
+        if (conf.equalsIgnoreCase("S")) {
+            try {
+                Funcionario f = new Funcionario();
+                f.setNome(nome);
+                f.setIdade(idade);
+                f.setBairro(bairro);
+                f.setCEP(cep);
+                f.setCidade(cidade);
+                f.setCpf(cpf);
+                f.setNumero(nome);
+                f.setTelefone(telefone);
+                f.setUF(uf);
+                
+                //FuncionarioDaoAnt cDao= new FuncionarioDaoAnt();
+                FuncionarioDao fDao = new FuncionarioDao();
+                fDao.inserir(f);
+            } catch (SQLException ex) {
+                System.out.println("Ërro ao inserir funcionario :- " + ex.getMessage());
+            }
+
+        }
+
     }
 }

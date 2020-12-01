@@ -5,7 +5,7 @@
  */
 package br.com.loja.view.Funcionário;
 
-import br.com.loja.dao.FuncionarioDao;
+import br.com.loja.dao.FuncionarioDaoAnt;
 import br.com.loja.entidade.Funcionario;
 import java.util.Scanner;
 
@@ -26,7 +26,7 @@ public class FuncionarioExcluir {
         System.out.println("favor informar o codigo do funcionario");
         int codigo = sci.nextInt();
 
-        FuncionarioDao cDao = new FuncionarioDao();
+        FuncionarioDaoAnt cDao = new FuncionarioDaoAnt();
 
         Funcionario c = cDao.consultar(codigo);
 
@@ -56,4 +56,3 @@ public class FuncionarioExcluir {
 
 }
 
-//gay

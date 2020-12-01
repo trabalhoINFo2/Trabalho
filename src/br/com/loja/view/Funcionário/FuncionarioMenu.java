@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Usuario
+ * @author Hian Linhares
  */
 public class FuncionarioMenu {
 
@@ -22,7 +22,7 @@ public class FuncionarioMenu {
         while (opc != menu.length) {
 
             System.out.println("========================");
-            System.out.println("    Menu de Produtos    ");
+            System.out.println("    Menu de Funcionários    ");
             System.out.println("========================");
             for (int i = 0; i < menu.length; i++) {
                 System.out.println(i + " - " + menu[i]);
