@@ -5,9 +5,13 @@
  */
 package br.com.loja.view.Funcionário;
 
+import br.com.loja.dao.FuncionarioDao;
 import br.com.loja.dao.FuncionarioDaoAnt;
 import br.com.loja.entidade.Funcionario;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,27 +24,32 @@ public class ConsultarFuncionarioTodos {
         System.out.println("consulta de todos os funcionários");
         System.out.println("");
 
-        FuncionarioDaoAnt cDao = new FuncionarioDaoAnt();
-        List<Funcionario> cList = cDao.consultartodos();
+        FuncionarioDao cDao = new FuncionarioDao();
+        List<Funcionario> cList;
+        try {
+            cList = cDao.consultatodos();
 
-        if (cList.size() > 0) {
-            for (int i = 0; i < cList.size(); i++) {
-                Funcionario c = cList.get(i);
-                System.out.println("cod:   " + c.getCodigo());
-                System.out.println("nome:   " + c.getNome());
-                System.out.println("idade:   " + c.getIdade());
-                System.out.println("telefone:   " + c.getTelefone());
-                System.out.println("uf:   " + c.getUF());
-                System.out.println("cidade:   " + c.getCidade());
-                System.out.println("bairro:   " + c.getBairro());
-                System.out.println("cpf:   " + c.getCpf());
+            if (cList.size() > 0) {
+                for (int i = 0; i < cList.size(); i++) {
+                    Funcionario f = cList.get(i);
+                    System.out.println("cod:   " + f.getCodigo());
+                    System.out.println("nome:   " + f.getNome());
+                    System.out.println("idade:   " + f.getIdade());
+                    System.out.println("telefone:   " + f.getTelefone());
+                    System.out.println("uf:   " + f.getUF());
+                    System.out.println("cidade:   " + f.getCidade());
+                    System.out.println("bairro:   " + f.getBairro());
+                    System.out.println("cpf:   " + f.getCpf());
+
+                }
+
+            } else {
+                System.out.println("nao ha clientes no banco de dados ");
+                System.out.println("---------------------------------");
 
             }
-
-        }else{
-            System.out.println("nao ha clientes no banco de dados ");
-              System.out.println("---------------------------------");
-            
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultarFuncionarioTodos.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

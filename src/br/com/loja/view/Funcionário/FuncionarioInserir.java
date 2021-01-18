@@ -54,11 +54,11 @@ public class FuncionarioInserir {
         String cep = scs.nextLine();
 
         System.out.println("numero");
-        int numero = sci.nextInt();
+        String numero = scs.nextLine();
 
-        System.out.println("Confirmar inserção? [S(sim)/N(não)]");
+        System.out.println("Confirmar inserção? (sim)/(não)]");
         String conf = scs.nextLine();
-        if (conf.equalsIgnoreCase("S")) {
+        if (conf.equalsIgnoreCase("Sim")) {
             try {
                 Funcionario f = new Funcionario();
                 f.setNome(nome);
@@ -67,7 +67,7 @@ public class FuncionarioInserir {
                 f.setCEP(cep);
                 f.setCidade(cidade);
                 f.setCpf(cpf);
-                f.setNumero(nome);
+                f.setNumero(numero);
                 f.setTelefone(telefone);
                 f.setUF(uf);
                 
@@ -75,7 +75,7 @@ public class FuncionarioInserir {
                 FuncionarioDao fDao = new FuncionarioDao();
                 fDao.inserir(f);
             } catch (SQLException ex) {
-                System.out.println("Ërro ao inserir funcionario :- " + ex.getMessage());
+                System.out.println("Ërro ao inserir funcionário :- " + ex.getMessage());
             }
 
         }

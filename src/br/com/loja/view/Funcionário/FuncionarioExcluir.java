@@ -5,9 +5,13 @@
  */
 package br.com.loja.view.Funcionário;
 
+import br.com.loja.dao.FuncionarioDao;
 import br.com.loja.dao.FuncionarioDaoAnt;
 import br.com.loja.entidade.Funcionario;
+import java.sql.SQLException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -24,35 +28,41 @@ public class FuncionarioExcluir {
         System.out.println("exclusão de funcionario");
         System.out.println("");
         System.out.println("favor informar o codigo do funcionario");
-        int codigo = sci.nextInt();
+        int cod = sci.nextInt();
 
-        FuncionarioDaoAnt cDao = new FuncionarioDaoAnt();
+        FuncionarioDao cDao = new FuncionarioDao();
 
-        Funcionario c = cDao.consultar(codigo);
+        Funcionario f = null;
+        try {
+            f = cDao.consultarporcod(cod);
+        } catch (SQLException ex) {
+            System.out.println("Nao foi possivel excluir o funcionario :- " + ex.getMessage());
+        }
 
-        if (c != null) {
-            System.out.println("cod:   " + c.getCodigo());
-            System.out.println("nome:   " + c.getNome());
-            System.out.println("idade:   " + c.getIdade());
-            System.out.println("telefone:   " + c.getTelefone());
-            System.out.println("uf:   " + c.getUF());
-            System.out.println("cidade:   " + c.getCidade());
-            System.out.println("bairro:   " + c.getBairro());
-            System.out.println("cpf:   " + c.getCpf());
+        if (f != null) {
+            System.out.println("cod:   " + f.getCodigo());
+            System.out.println("nome:   " + f.getNome());
+            System.out.println("idade:   " + f.getIdade());
+            System.out.println("telefone:   " + f.getTelefone());
+            System.out.println("uf:   " + f.getUF());
+            System.out.println("cidade:   " + f.getCidade());
+            System.out.println("bairro:   " + f.getBairro());
+            System.out.println("cpf:   " + f.getCpf());
 
-            
-            
-              System.out.println("deseja excluir esse cliente ? [SIM/NAO]");
-              String confirmacao=scs.nextLine();
-              if (confirmacao.equalsIgnoreCase("sim")) {
-                cDao.excluir(codigo);
+            System.out.println("deseja excluir esse cliente ? [SIM/NAO]");
+            String confirmacao = scs.nextLine();
+            if (confirmacao.equalsIgnoreCase("sim")) {
+                try {
+                    cDao.excluir(cod);
+                } catch (SQLException ex) {
+                    System.out.println("Nao foi possivel excluir o funcionario :- " + ex.getMessage());
+                }
             }
-            
+
         } else {
-            System.out.println("funcionario do " + codigo + "nao existe na base de dados");
+            System.out.println("funcionario do " + cod + "nao existe na base de dados");
         }
 
     }
 
 }
-
