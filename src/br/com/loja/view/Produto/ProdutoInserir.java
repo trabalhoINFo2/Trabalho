@@ -7,6 +7,7 @@ package br.com.loja.view.Produto;
 
 import br.com.loja.dao.ProdutoDao;
 import br.com.loja.entidade.Produto;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -33,13 +34,20 @@ public class ProdutoInserir {
         
         String conf = scs.nextLine();
         
+        
+        
         if(conf.equalsIgnoreCase("S")){
-            Produto p = new Produto();
-            
-            p.setTipo(tipo);
-            
-            ProdutoDao pDao = new ProdutoDao();
-            pDao.inserir(p);
+            try {
+                Produto p = new Produto();
+
+                p.setTipo(tipo);
+
+                ProdutoDao pDao = new ProdutoDao();
+                pDao.inserir(p);
+                
+            } catch (SQLException ex) {
+                System.out.println("Ërro ao inserir funcionário :- " + ex.getMessage());
+            }
         }
     }
 }

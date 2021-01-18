@@ -1,73 +1,170 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.loja.dao;
 
-import br.com.loja.entidade.Produto;
-import br.com.loja.view.Produto.ProdutoInserir;
 
+import br.com.loja.dao.Dao;
+
+import br.com.loja.entidade.Produto;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Guilherme
- */
-public class ProdutoDao {
+public class ProdutoDao extends Dao {
 
-    private static List<Produto> BDProduto = new ArrayList<>();
-    private static int proccod = 1;
+    private String insertSQL
+            = " insert into produto "
+            + " ( tipo) "
+            + " values (?)";
 
-    public void inserir(Produto p) {
+    private String consultarporcodSQL
+            = " select * from  produto "
+            + " where cod = ? ";
 
-        p.setCod(proccod);
-        proccod++;
-        BDProduto.add(p);
+    private String consultartodosSQL
+            = " select * from produto";
+
+    private String excluirSQL
+            = " delete from produto "
+            + " where cod = ? ";
+
+    private String alterarSQL
+            = " update produto "
+            + " set tipo = ? ";
+
+    public void inserir(Produto p) throws SQLException {
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = getConnection();
+            ps = conn.prepareStatement(insertSQL);
+
+            ps.setString(1, p.getTipo());
+
+            ps.executeUpdate();
+
+        } catch (SQLException ex) {
+            throw ex;
+        } finally {
+            closeps(ps);
+            closeConnection(conn);
+        }
 
     }
 
-    public Produto ConsultarProdutoCod(int cod) {
-        Produto ret = null;
+    public Produto consultarporcod(int cod) throws SQLException {
+        Produto p = null;
+        
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
 
-        for (int i = 0; i < BDProduto.size(); i++) {
-            Produto p = BDProduto.get(i);
+        try {
 
-            if (p.getCod() == cod) {
-                ret = p;
-                break;
+            conn = getConnection();
+            ps = conn.prepareStatement(consultarporcodSQL);
+            ps.setInt(1, cod);
+            rs = ps.executeQuery();
+            
+            if (rs.next()) {
+                p = new Produto();
+                p.setCod(cod);
+                p.setTipo(rs.getString("nome"));
+
             }
 
+        } catch (SQLException ex) {
+            throw ex;
+            
+        } finally {
+            closeps(ps);
+            closeConnection(conn);
         }
+        return p;
+    }
+
+    public List<Produto> consultatodos() throws SQLException {
+        List<Produto> ret = new ArrayList<Produto>();
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+
+            conn = getConnection();
+            ps = conn.prepareStatement(consultartodosSQL);
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Produto p = new Produto();
+                p.setCod(rs.getInt("cod"));
+                p.setTipo(rs.getString("tipo"));
+                
+
+                ret.add(p);
+            }
+
+        } catch (SQLException ex) {
+            throw ex;
+            
+        } finally {
+            closeps(ps);
+            closeConnection(conn);
+        }
+
         return ret;
     }
 
-    public List<Produto> ConsultarProduto() {
-        return BDProduto;
-    }
+    public void excluir(int cod) throws SQLException {
+        Connection conn = null;
+        PreparedStatement ps = null;
 
-    public void excluir(int cod) {
-        for (int i = 0; i < BDProduto.size(); i++) {
-            Produto p = BDProduto.get(i);
+        try {
 
-            if (p.getCod() == cod) {
-                BDProduto.remove(i);
-                break;
-            }
+            conn = getConnection();
+            ps = conn.prepareStatement(excluirSQL);
+            ps.setInt(1, cod);
+            ps.executeUpdate();
 
+        } catch (SQLException ex) {
+            throw ex;
+
+        } finally {
+            closeps(ps);
+            closeConnection(conn);
         }
+
     }
 
-    public void alterar(Produto p) {
- for (int i = 0; i < BDProduto.size(); i++) {
-            Produto cAux = BDProduto.get(i);
+    public void alterar(Produto p) throws SQLException {
+        Connection conn = null;
+        PreparedStatement ps = null;
 
-            if (cAux.getCod() == p.getCod()) {
-                BDProduto.add(p);
-                break;
-            }
+        try {
 
-        }    }
+            conn = getConnection();
+
+            ps = conn.prepareStatement(alterarSQL);
+
+            ps.setString(1, p.getTipo());
+            ps.executeUpdate();
+
+        
+        } catch (SQLException ex) {
+            throw ex;
+            
+        } finally {
+            closeps(ps);
+            closeConnection(conn);
+        }
+
+
+    
+}
+
 
 }

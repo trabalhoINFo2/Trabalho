@@ -7,7 +7,11 @@ package br.com.loja.view.Produto;
 
 import br.com.loja.dao.ProdutoDao;
 import br.com.loja.entidade.Produto;
+import br.com.loja.view.Funcionário.ConsultarFuncionarioTodos;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,7 +26,9 @@ public class ConsultarProduto {
         System.out.println("----------------------");
         
         ProdutoDao pDao = new ProdutoDao();
-        List<Produto> pList = pDao.ConsultarProduto();
+        List<Produto> pList ;
+         try {
+            pList = pDao.consultatodos();
         
         if (pList.size() > 0) {
             for (int i = 0; i < pList.size(); i++) {
@@ -37,6 +43,9 @@ public class ConsultarProduto {
             System.out.println("Não há Produtos na base de dados! ");
             System.out.println("---------------------------------");
 
+        }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultarFuncionarioTodos.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

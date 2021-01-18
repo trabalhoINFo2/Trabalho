@@ -7,6 +7,7 @@ package br.com.loja.view.Produto;
 
 import br.com.loja.dao.ProdutoDao;
 import br.com.loja.entidade.Produto;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -26,7 +27,12 @@ public class ProdutoAlterar {
         int cod = sci.nextInt();
 
         ProdutoDao pDao = new ProdutoDao();
-        Produto p = pDao.ConsultarProdutoCod(cod);
+        Produto p = null;
+        try {
+            p = pDao.consultarporcod(cod);
+        } catch (SQLException ex) {
+            System.out.println("Nao foi possivel excluir o funcionario :- " + ex.getMessage());
+        }
         
         if (p != null) {
             System.out.println("Tipo do produto: " + p.getTipo());
@@ -40,7 +46,11 @@ public class ProdutoAlterar {
 
             if (conf.equalsIgnoreCase("S")) {
                 p.getTipo();
+                try{
                 pDao.alterar(p);
+                } catch (SQLException ex) {
+                    System.out.println("Nao foi possivel alterar o funcionario :- " + ex.getMessage());
+                }
 
             } else {
                 System.out.println("Produto com o código " + cod + " não existe!");

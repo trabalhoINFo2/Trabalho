@@ -7,6 +7,7 @@ package br.com.loja.view.Produto;
 
 import br.com.loja.dao.ProdutoDao;
 import br.com.loja.entidade.Produto;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -28,8 +29,13 @@ public class ProdutoExcluir {
         
         int cod = sci.nextInt();
         
-        ProdutoDao pDao = new ProdutoDao();
-        Produto p = pDao.ConsultarProdutoCod(cod);
+        ProdutoDao cDao = new ProdutoDao();
+        Produto p = null;
+        try {
+            p = cDao.consultarporcod(cod);
+        } catch (SQLException ex) {
+            System.out.println("Nao foi possivel excluir o funcionario :- " + ex.getMessage());
+        }
         
          if (p != null) {
             System.out.println("Tipo do produto: " + p.getTipo());
@@ -38,13 +44,18 @@ public class ProdutoExcluir {
             System.out.println("Deseja realmente excluir este cliente? [S(sim)/N(não)]");
             
             String conf = scs.nextLine();
+            
 
             if (conf.equalsIgnoreCase("S")) {
-
-                pDao.excluir(cod);
+                try {
+                    cDao.excluir(cod);
+                    
+                } catch (SQLException ex) {
+                    System.out.println("Nao foi possivel excluir o funcionario :- " + ex.getMessage());
+                }
 
             } else {
-                System.out.println("Produto com o código " + cod + " não existe!");
+                    System.out.println("Produto com o código " + cod + " não existe!");
             }
         }
         

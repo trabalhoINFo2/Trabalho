@@ -5,7 +5,7 @@
  */
 package br.com.loja.view.Produto;
 
-import br.com.loja.dao.ProdutoDao;
+import br.com.loja.dao.ProdutoDaoAnt;
 import br.com.loja.entidade.Produto;
 import java.util.Scanner;
 
@@ -28,7 +28,7 @@ public class ConsultarProdutoCod {
         
         int cod = sci.nextInt();
         
-        ProdutoDao pDao = new ProdutoDao();
+        ProdutoDaoAnt pDao = new ProdutoDaoAnt();
         Produto p = pDao.ConsultarProdutoCod(cod);
         
         if (p != null) {
