@@ -50,25 +50,14 @@ public class FuncionarioAlterar {
 
             System.out.println("informe o novo nome");
             String novonome = scs.nextLine();
-            System.out.println("informe a nova idade");
-            int novaidade = sci.nextInt();
-            System.out.println("informe o novo telefone");
-            String novotelefone = scs.nextLine();
-            System.out.println("informe o novo uf");
-            String novouf = scs.nextLine();
-            System.out.println("informe o nova cidade");
-            String novacidade = scs.nextLine();
-            System.out.println("informe o novo bairro");
-            String novobairro = scs.nextLine();
-            System.out.println("informe o novo cpf");
-            String novocpf = scs.nextLine();
-            
+           
             //coloquei os outros parametros que faltava pois so estava pedindo para mudar o nome
 
             System.out.println("deseja alterar esse cliente ? [SIM/NAO]");
             String confirmacao = scs.nextLine();
             if (confirmacao.equalsIgnoreCase("Sim")) {
                 f.setNome(novonome);
+                
                 try {
                     fDao.alterar(f);
                 } catch (SQLException ex) {

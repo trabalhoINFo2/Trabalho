@@ -49,7 +49,7 @@ public class FuncionarioExcluir {
             System.out.println("bairro:   " + f.getBairro());
             System.out.println("cpf:   " + f.getCpf());
 
-            System.out.println("deseja excluir esse cliente ? [SIM/NAO]");
+            System.out.println("deseja excluir esse funcionario ? [SIM/NAO]");
             String confirmacao = scs.nextLine();
             if (confirmacao.equalsIgnoreCase("sim")) {
                 try {

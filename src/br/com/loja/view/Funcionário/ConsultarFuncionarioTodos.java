@@ -40,6 +40,7 @@ public class ConsultarFuncionarioTodos {
                     System.out.println("cidade:   " + f.getCidade());
                     System.out.println("bairro:   " + f.getBairro());
                     System.out.println("cpf:   " + f.getCpf());
+                    System.out.println("---------------------------------");
 
                 }
 

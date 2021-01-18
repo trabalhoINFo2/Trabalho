@@ -186,6 +186,7 @@ public class FuncionarioDao extends Dao {
             ps.setString(4, f.getBairro());
             ps.setString(5, f.getCidade());
             ps.setString(6, f.getUF());
+            ps.setInt(7, f.getCodigo());
             ps.executeUpdate();
 
         
