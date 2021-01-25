@@ -31,7 +31,7 @@ public class ProdutoAlterar {
         try {
             p = pDao.consultarporcod(cod);
         } catch (SQLException ex) {
-            System.out.println("Nao foi possivel excluir o funcionario :- " + ex.getMessage());
+            System.out.println("Nao foi possivel excluir o produto :- " + ex.getMessage());
         }
         
         if (p != null) {
@@ -39,17 +39,17 @@ public class ProdutoAlterar {
 
             System.out.println("");
             System.out.println("Informe um novo tipo.");
-            String tipo = scs.nextLine();
+            String novotp = scs.nextLine();
 
             System.out.println("Deseja realmente alterar essas informações? [S(sim)/N(não)]");
             String conf = scs.nextLine();
 
             if (conf.equalsIgnoreCase("S")) {
-                p.getTipo();
+                p.setTipo(novotp);
                 try{
                 pDao.alterar(p);
                 } catch (SQLException ex) {
-                    System.out.println("Nao foi possivel alterar o funcionario :- " + ex.getMessage());
+                    System.out.println("Nao foi possivel alterar o produto :- " + ex.getMessage());
                 }
 
             } else {

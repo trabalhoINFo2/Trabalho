@@ -1,7 +1,7 @@
 package br.com.loja.dao;
 
 
-import br.com.loja.dao.Dao;
+
 
 import br.com.loja.entidade.Produto;
 import java.sql.Connection;
@@ -15,7 +15,7 @@ public class ProdutoDao extends Dao {
 
     private String insertSQL
             = " insert into produto "
-            + " ( tipo) "
+            + " (tipo) "
             + " values (?)";
 
     private String consultarporcodSQL
@@ -29,9 +29,10 @@ public class ProdutoDao extends Dao {
             = " delete from produto "
             + " where cod = ? ";
 
-    private String alterarSQL
+    private String alteraSQl
             = " update produto "
-            + " set tipo = ? ";
+            + " set tipo = ? "
+            + " where cod = ? ";
 
     public void inserir(Produto p) throws SQLException {
 
@@ -71,7 +72,7 @@ public class ProdutoDao extends Dao {
             if (rs.next()) {
                 p = new Produto();
                 p.setCod(cod);
-                p.setTipo(rs.getString("nome"));
+                p.setTipo(rs.getString("tipo"));
 
             }
 
@@ -148,9 +149,11 @@ public class ProdutoDao extends Dao {
 
             conn = getConnection();
 
-            ps = conn.prepareStatement(alterarSQL);
+            ps = conn.prepareStatement(alteraSQl);
 
+            
             ps.setString(1, p.getTipo());
+            ps.setInt(2, p.getCod());
             ps.executeUpdate();
 
         
@@ -165,6 +168,8 @@ public class ProdutoDao extends Dao {
 
     
 }
+
+    
 
 
 }

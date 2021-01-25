@@ -46,7 +46,7 @@ public class ProdutoInserir {
                 pDao.inserir(p);
                 
             } catch (SQLException ex) {
-                System.out.println("Ërro ao inserir funcionário :- " + ex.getMessage());
+                System.out.println("Erro ao inserir funcionário :- " + ex.getMessage());
             }
         }
     }
