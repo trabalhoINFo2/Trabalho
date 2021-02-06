@@ -16,9 +16,9 @@ import java.sql.SQLException;
  */
 public class Dao {
 
-    protected String url= "jdbc:mysql://localhost/estamparia?useTimezone=true&serverTimezone=UTC";
-    protected String user ="root";
-    protected String pwd = "";
+    protected String url= "jdbc:mysql://kubut.com/kubut_cefet_meninos?";
+    protected String user ="kubut_cefet_meninos";
+    protected String pwd = "cefet_meninos";
     
     public Connection getConnection() throws SQLException {
         Connection conn = null;
