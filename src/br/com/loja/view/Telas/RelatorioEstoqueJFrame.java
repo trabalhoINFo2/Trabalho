@@ -27,19 +27,26 @@ public class RelatorioEstoqueJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        cdproduto = new javax.swing.JButton();
+        cdqtd = new javax.swing.JButton();
+        manual = new javax.swing.JButton();
+        busca = new javax.swing.JButton();
+
+        jMenu1.setText("File");
+        jMenuBar2.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar2.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Estoque");
         setLocation(new java.awt.Point(230, 150));
         setMinimumSize(new java.awt.Dimension(497, 308));
-        setPreferredSize(new java.awt.Dimension(497, 308));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -65,19 +72,18 @@ public class RelatorioEstoqueJFrame extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        jMenu1.setText("Cadastro de Produto");
-        jMenuBar1.add(jMenu1);
+        cdproduto.setText("Cadastro de Produto");
+        cdproduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cdprodutoActionPerformed(evt);
+            }
+        });
 
-        jMenu2.setText("Cadastro de quantidade");
-        jMenuBar1.add(jMenu2);
+        cdqtd.setText("Cadastro de Quantidade");
 
-        jMenu4.setText("Baixa Manual");
-        jMenuBar1.add(jMenu4);
+        manual.setText("Baixar manual");
 
-        jMenu3.setText("Buscar");
-        jMenuBar1.add(jMenu3);
-
-        setJMenuBar(jMenuBar1);
+        busca.setText("Buscar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -87,17 +93,36 @@ public class RelatorioEstoqueJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(cdproduto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cdqtd)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manual)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(busca)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cdproduto)
+                    .addComponent(cdqtd)
+                    .addComponent(manual)
+                    .addComponent(busca))
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cdprodutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cdprodutoActionPerformed
+        CprodutoJFrame cp = new CprodutoJFrame();
+        cp.setVisible(true);
+    }//GEN-LAST:event_cdprodutoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,12 +160,14 @@ public class RelatorioEstoqueJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton busca;
+    private javax.swing.JButton cdproduto;
+    private javax.swing.JButton cdqtd;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton manual;
     // End of variables declaration//GEN-END:variables
 }

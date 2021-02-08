@@ -134,7 +134,8 @@ public class HomeJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoentarActionPerformed
 
     private void botaocadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaocadastroActionPerformed
-        // TODO add your handling code here:
+        CadastroUsuarioJFrame hm = new CadastroUsuarioJFrame();
+        hm.setVisible(true);
     }//GEN-LAST:event_botaocadastroActionPerformed
 
     /**

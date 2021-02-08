@@ -33,7 +33,7 @@ public class ClienteExcluir {
         if (c != null) {
             System.out.println("Nome Completo: " + c.getNome());
 
-            System.out.println("Idade: " + c.getIdade());
+            System.out.println("Idade: " + c.getNascimento());
 
             System.out.println("CPf: " + c.getCpf());
 

@@ -23,7 +23,7 @@ class ConsultarTodos {
                 Cliente c = cList.get(i);
                 System.out.println("Nome Completo: " + c.getNome());
 
-                System.out.println("Idade: " + c.getIdade());
+                System.out.println("Idade: " + c.getNascimento());
 
                 System.out.println("CPf: " + c.getCpf());
 

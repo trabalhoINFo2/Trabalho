@@ -15,12 +15,12 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public int getIdade() {
-        return idade;
+    public String getNascimento() {
+        return nascimento;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setNascimento(String nascimento) {
+        this.nascimento = nascimento;
     }
 
     public String getCpf() {
@@ -87,7 +87,7 @@ public class Cliente {
         this.cod = cod;
     }
     private String nome;
-    private int idade;
+    private String nascimento;
     private String cpf;
     private String telefone;
 
