@@ -361,14 +361,14 @@ public class CadastroUsuarioJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void salvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salvarActionPerformed
-        
-        String nome = jnome.getText()+" "+jsobrenome.getText();
 
-        String idade = jdia.getText()+"/"+jddd.getText()+"/"+jano.getText();
+        String nome = jnome.getText() + " " + jsobrenome.getText();
 
-        String cpf = jcpf1.getText()+"/"+jcpf2.getText();
+        String idade = jdia.getText() + "/" + jddd.getText() + "/" + jano.getText();
 
-        String telefone = "("+jddd.getText()+")"+jtelefone.getText();
+        String cpf = jcpf1.getText() + "/" + jcpf2.getText();
+
+        String telefone = "(" + jddd.getText() + ")" + jtelefone.getText();
 
         String cidade = jcidade.getText();
 
@@ -379,23 +379,30 @@ public class CadastroUsuarioJFrame extends javax.swing.JFrame {
         String cep = jcep.getText();
 
         String número = jnumero.getText();
-        
-         Cliente c = new Cliente();
-            c.setNome(nome);
-            c.setCpf(cpf);
-            c.setTelefone(telefone);
-            c.setCidade(cidade);
-            c.setUF(uf);
-            c.setBairro(bairro);
-            c.setCEP(cep);
-            c.setNascimento(idade);
-            
-            ClienteDao cDao = new ClienteDao();
-            try{
-                cDao.inserir(c);
-            }catch(SQLException e){
-                JOptionPane.showConfirmDialog(this, e);
-            }
+
+        Cliente c = new Cliente();
+        c.setNome(nome);
+        c.setCpf(cpf);
+        c.setTelefone(telefone);
+        c.setCidade(cidade);
+        c.setUF(uf);
+        c.setBairro(bairro);
+        c.setCEP(cep);
+        c.setNascimento(idade);
+
+        ClienteDao cDao = new ClienteDao();
+        try {
+            cDao.inserir(c);
+        } catch (SQLException ex) {
+            String msg = "não foi possivel inserir o funcionário...";
+            msg = msg + "falha na comunicação com o banco de dados...";
+            msg = msg + ex.getMessage();
+
+            JOptionPane.showMessageDialog(this, msg);
+        }
+
+        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_salvarActionPerformed
 
     private void jdddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jdddActionPerformed

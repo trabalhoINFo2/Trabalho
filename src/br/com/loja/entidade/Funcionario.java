@@ -5,7 +5,7 @@ public class Funcionario {
     //dados do Funcioário
     
     private String nome;
-    private int idade;
+    private String idade;
     private String cpf;
     private String telefone;
     private int codigo;
@@ -35,11 +35,11 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public int getIdade() {
+    public String getIdade() {
         return idade;
     }
 
-    public void setIdade(int idade) {
+    public void setIdade(String idade) {
         this.idade = idade;
     }
 

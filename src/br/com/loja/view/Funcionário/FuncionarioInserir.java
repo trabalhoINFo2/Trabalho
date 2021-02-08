@@ -33,7 +33,7 @@ public class FuncionarioInserir {
         String nome = scs.nextLine();
 
         System.out.println("idade:");
-        int idade = sci.nextInt();
+        String idade = scs.nextLine();
 
         System.out.println("cpf:");
         String cpf = scs.nextLine();
