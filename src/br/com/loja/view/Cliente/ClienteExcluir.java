@@ -7,6 +7,7 @@ package br.com.loja.view.Cliente;
 
 import br.com.loja.dao.ClienteDao;
 import br.com.loja.entidade.Cliente;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -28,7 +29,13 @@ public class ClienteExcluir {
         int cod = sci.nextInt();
 
         ClienteDao cDao = new ClienteDao();
-        Cliente c = cDao.consultarclienteporcod(cod);
+        Cliente c = null;
+        
+        try {
+            c = cDao.consultarporcod(cod);
+        } catch (SQLException ex) {
+            System.out.println("Nao foi possivel excluir o cliente :- " + ex.getMessage());
+        }
 
         if (c != null) {
             System.out.println("Nome Completo: " + c.getNome());
@@ -52,9 +59,12 @@ public class ClienteExcluir {
             System.out.println("Deseja realmente excluir este cliente? [S(sim)/N(não)]");
             String conf = scs.nextLine();
 
-            if (conf.equalsIgnoreCase("S")) {
-
-                cDao.excluir(cod);
+            if (conf.equalsIgnoreCase("S")|| conf.equalsIgnoreCase("sim")) {
+                try{    
+                    cDao.excluir(cod);
+                }catch(SQLException ex){
+                    System.out.println("Nao foi possivel excluir o cliente :- " + ex.getMessage());
+                }
 
             } else {
                 System.out.println("Cliente com o código " + cod + " não existe!");

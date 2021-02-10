@@ -6,6 +6,7 @@
 package br.com.loja.view.Telas;
 
 import br.com.loja.dao.ClienteDao;
+
 import br.com.loja.entidade.Cliente;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -72,14 +73,9 @@ public class CadastroUsuarioJFrame extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         juf = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jSeparator3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Cadastro de Usuário");
+        setTitle("Cadastro de cliente");
         setLocation(new java.awt.Point(360, 80));
         setMinimumSize(new java.awt.Dimension(564, 500));
 
@@ -126,6 +122,7 @@ public class CadastroUsuarioJFrame extends javax.swing.JFrame {
 
         jLabel13.setText("CEP");
 
+        salvar.setBackground(new java.awt.Color(0, 153, 153));
         salvar.setText("Salvar");
         salvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +130,7 @@ public class CadastroUsuarioJFrame extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(255, 51, 51));
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,16 +163,6 @@ public class CadastroUsuarioJFrame extends javax.swing.JFrame {
                 jufActionPerformed(evt);
             }
         });
-
-        jLabel18.setText("Usuário");
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jLabel19.setText("Senha");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -214,18 +202,10 @@ public class CadastroUsuarioJFrame extends javax.swing.JFrame {
                                     .addComponent(jLabel17)
                                     .addComponent(juf, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel12)
-                                    .addComponent(jbairro, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel18)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(34, 34, 34)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel19))))))
+                                    .addComponent(jbairro, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(0, 167, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(113, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jButton2)
@@ -263,7 +243,6 @@ public class CadastroUsuarioJFrame extends javax.swing.JFrame {
                                 .addGap(2, 2, 2)
                                 .addComponent(jcpf2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(151, 151, 151))))
-            .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,17 +307,7 @@ public class CadastroUsuarioJFrame extends javax.swing.JFrame {
                     .addComponent(jtelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jddd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salvar)
                     .addComponent(jButton2))
@@ -366,7 +335,7 @@ public class CadastroUsuarioJFrame extends javax.swing.JFrame {
 
         String idade = jdia.getText() + "/" + jddd.getText() + "/" + jano.getText();
 
-        String cpf = jcpf1.getText() + "/" + jcpf2.getText();
+        String cpf = jcpf1.getText() + "-" + jcpf2.getText();
 
         String telefone = "(" + jddd.getText() + ")" + jtelefone.getText();
 
@@ -374,33 +343,30 @@ public class CadastroUsuarioJFrame extends javax.swing.JFrame {
 
         String uf = juf.getText();
 
-        String bairro = jcidade.getText();
+        String bairro = jbairro.getText();
 
         String cep = jcep.getText();
 
-        String número = jnumero.getText();
+        String numero = jnumero.getText();
 
         Cliente c = new Cliente();
         c.setNome(nome);
+        c.setNascimento(idade);
         c.setCpf(cpf);
+        c.setNumero(numero);
         c.setTelefone(telefone);
         c.setCidade(cidade);
         c.setUF(uf);
         c.setBairro(bairro);
         c.setCEP(cep);
-        c.setNascimento(idade);
+        
 
         ClienteDao cDao = new ClienteDao();
-        try {
-            cDao.inserir(c);
-        } catch (SQLException ex) {
-            String msg = "não foi possivel inserir o funcionário...";
-            msg = msg + "falha na comunicação com o banco de dados...";
-            msg = msg + ex.getMessage();
-
-            JOptionPane.showMessageDialog(this, msg);
+        try{
+             cDao.inserir(c);
+        }catch(SQLException ex){
+        
         }
-
         this.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_salvarActionPerformed
@@ -420,10 +386,6 @@ public class CadastroUsuarioJFrame extends javax.swing.JFrame {
     private void jufActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jufActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jufActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -477,8 +439,6 @@ public class CadastroUsuarioJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -488,9 +448,6 @@ public class CadastroUsuarioJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jano;
     private javax.swing.JTextField jbairro;
     private javax.swing.JTextField jcep;

@@ -2,7 +2,11 @@ package br.com.loja.view.Cliente;
 
 import br.com.loja.dao.ClienteDao;
 import br.com.loja.entidade.Cliente;
+import br.com.loja.view.Funcionário.ConsultarFuncionarioTodos;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Higor
@@ -16,8 +20,10 @@ class ConsultarTodos {
         System.out.println("----------------------");
 
         ClienteDao cDao = new ClienteDao();
-        List<Cliente> cList = cDao.consultartodos();
-
+        List<Cliente> cList;
+        try{
+           cList = cDao.consultatodos();
+        
         if (cList.size() > 0) {
             for (int i = 0; i < cList.size(); i++) {
                 Cliente c = cList.get(i);
@@ -45,6 +51,10 @@ class ConsultarTodos {
         } else {
             System.out.println("Não há Clientes na base de dados! ");
             System.out.println("---------------------------------");
+
+        }
+        }catch(SQLException ex){
+                    Logger.getLogger(ConsultarFuncionarioTodos.class.getName()).log(Level.SEVERE, null, ex);
 
         }
 

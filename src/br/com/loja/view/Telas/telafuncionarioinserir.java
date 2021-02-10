@@ -163,6 +163,7 @@ public class telafuncionarioinserir extends javax.swing.JFrame {
         });
         getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 120, 30));
 
+        jButton1.setBackground(new java.awt.Color(255, 51, 51));
         jButton1.setText("cancelar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,6 +172,7 @@ public class telafuncionarioinserir extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1);
 
+        jButton2.setBackground(new java.awt.Color(0, 153, 153));
         jButton2.setText("inserir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

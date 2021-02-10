@@ -7,6 +7,7 @@ package br.com.loja.view.Cliente;
 
 import br.com.loja.dao.ClienteDao;
 import br.com.loja.entidade.Cliente;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
@@ -27,7 +28,13 @@ public class ClienteAlterar {
         int cod = sci.nextInt();
 
         ClienteDao cDao = new ClienteDao();
-        Cliente c = cDao.consultarclienteporcod(cod);
+        
+        Cliente c = null;
+        try {
+            c = cDao.consultarporcod(cod);
+        } catch (SQLException ex) {
+            System.out.println("Nao foi possivel localizar o cliente :- " + ex.getMessage());
+        }
 
         if (c != null) {
             System.out.println("Nome Completo: " + c.getNome());
@@ -57,7 +64,12 @@ public class ClienteAlterar {
 
             if (conf.equalsIgnoreCase("S")) {
                 c.setNome(nome);
-                cDao.alterar(c);
+                try{
+                    cDao.alterar(c);
+                } catch(SQLException ex){
+                    System.out.println("Nao foi possivel alterar o cliente :- " + ex.getMessage());
+
+                }
 
             } else {
                 System.out.println("Cliente com o código " + cod + " não existe!");

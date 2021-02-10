@@ -2,6 +2,7 @@ package br.com.loja.view.Cliente;
 
 import br.com.loja.dao.ClienteDao;
 import br.com.loja.entidade.Cliente;
+import java.sql.SQLException;
 import java.util.Scanner;
 /**
  *
@@ -43,22 +44,26 @@ public class ClienteInserir {
         String cep = sci.nextLine();
 
         System.out.print("Número: ");
-        String número = sci.nextLine();
+        String numero = sci.nextLine();
 
         System.out.println("Confirmar inserção? [S(sim)/N(não)]");
         String conf = scs.nextLine();
         if (conf.equalsIgnoreCase("S")){
-            Cliente c = new Cliente();
-            c.setNome(nome);
-            c.setCpf(cpf);
-            c.setTelefone(telefone);
-            c.setCidade(cidade);
-            c.setUF(uf);
-            c.setBairro(bairro);
-            c.setCEP(cep);
+            try{
+                Cliente c = new Cliente();
+                c.setNome(nome);
+                c.setCpf(cpf);
+                c.setTelefone(telefone);
+                c.setCidade(cidade);
+                c.setUF(uf);
+                c.setBairro(bairro);
+                c.setCEP(cep);
 
-            ClienteDao cDao = new ClienteDao();
-            cDao.inserir(c);
+                ClienteDao cDao = new ClienteDao();
+                cDao.inserir(c);
+            }catch(SQLException ex){
+                System.out.println("Erro ao inserir cliente :- " + ex.getMessage());
+            }
         }
 
     }

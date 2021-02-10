@@ -2,6 +2,7 @@ package br.com.loja.view.Cliente;
 
 import br.com.loja.dao.ClienteDao;
 import br.com.loja.entidade.Cliente;
+import java.sql.SQLException;
 import java.util.Scanner;
 /**
  *
@@ -21,7 +22,11 @@ public class ConsultarClientePorCod {
         int cod = sci.nextInt();
 
         ClienteDao cDao = new ClienteDao();
-        Cliente c = cDao.consultarclienteporcod(cod);
+        Cliente c;
+        
+        try{
+            c = cDao.consultarporcod(cod);
+        
 
         if (c != null) {
             System.out.println("Nome Completo: " + c.getNome());
@@ -44,6 +49,9 @@ public class ConsultarClientePorCod {
 
         } else {
             System.out.println("Cliente com o código " + cod + " não existe!");
+        }
+        }catch(SQLException ex){
+            System.out.println("erro ao consultar cliente : " + ex.getMessage());
         }
     }
 }
