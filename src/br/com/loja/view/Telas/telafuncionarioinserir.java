@@ -184,7 +184,7 @@ public class telafuncionarioinserir extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 350, 50));
 
         jLabel10.setText("INSERÇÃO DE FUNCIONÁRIOS");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
