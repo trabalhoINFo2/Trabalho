@@ -5,7 +5,7 @@
  */
 package br.com.loja;
 
-import br.com.loja.view.Menuprincipal;
+import br.com.loja.view.Telas.telademenuprincipal;
 
 
 /**
@@ -15,9 +15,8 @@ import br.com.loja.view.Menuprincipal;
 public class LojaMain {
 
     public static void main(String[] args) {
-        Menuprincipal menu = new Menuprincipal();
-        menu.executar();
-       
+        telademenuprincipal menu = new  telademenuprincipal();
+        menu.setVisible(true);      
     }
 
 }
