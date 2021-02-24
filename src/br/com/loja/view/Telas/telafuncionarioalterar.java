@@ -5,7 +5,10 @@
  */
 package br.com.loja.view.Telas;
 
+import br.com.loja.dao.FuncionarioDao;
 import br.com.loja.entidade.Funcionario;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -149,6 +152,11 @@ public class telafuncionarioalterar extends javax.swing.JFrame {
         });
 
         jButton1.setText("Cancelar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Alterar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -309,6 +317,86 @@ public class telafuncionarioalterar extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
+        String nome = jTextField2.getText();
+        String cpf = jTextField4.getText();
+        String numero = jTextField6.getText();
+        String bairro = jTextField8.getText();
+        String cidade = jTextField5.getText();
+        String uf = jTextField9.getText();
+        String cep = jTextField3.getText();
+        String idade = jTextField7.getText();
+        String telefone = jTextField1.getText();
+        
+        
+        Funcionario f = new Funcionario ();
+        f.setCodigo(this.f.getCodigo());
+        f.setNome(nome);
+        f.setBairro(bairro);
+        f.setIdade(idade);
+        f.setTelefone(telefone);
+        f.setUF(uf);
+        f.setNumero(numero);
+        f.setCidade(cidade);
+        f.setCEP(cep);
+        f.setCpf(cpf);
+        
+        
+        FuncionarioDao fDao = new FuncionarioDao();
+         try{
+                    fDao.alterar(f);
+            } catch (SQLException ex) {
+                   String msg = "não foi possivel alterar o funcionário...";
+                   msg = msg + "falha na comunicação com o banco de dados...";
+                   msg = msg + ex.getMessage();
+                   
+                    JOptionPane.showMessageDialog(this,msg);
+            }
+
+                
+                this.setVisible(false);
+                this.dispose();
+                
+        
+        
+        
+        
+        
+        
+        
+        
+       // teve essa parte do texto que eu nao tenho certeza se é aqui mas de acordo com o video
+       
+       
+       
+        
+      
+                
+               
+        
+                                                                
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -335,6 +423,11 @@ public class telafuncionarioalterar extends javax.swing.JFrame {
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -115,8 +115,9 @@ public class telademenuprincipal extends javax.swing.JFrame {
 
         if (f != null) {
             //criar um frame do tipo "funcionarioalterar" no momento da criaçao deste frame passar o funcionario como parametro
-            telafuncionarioalterar frame = new  telafuncionarioalterar(f);
+            telafuncionarioalterar frame =  new telafuncionarioalterar(f);
             frame.setVisible(true);
+          
             
 
         } else {
