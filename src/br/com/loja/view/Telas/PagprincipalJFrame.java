@@ -91,7 +91,7 @@ public class PagprincipalJFrame extends javax.swing.JFrame {
         });
 
         Pdut.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        Pdut.setText("Produto");
+        Pdut.setText("Estoque");
         Pdut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PdutActionPerformed(evt);
@@ -157,8 +157,8 @@ public class PagprincipalJFrame extends javax.swing.JFrame {
 
     private void PdutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PdutActionPerformed
         
-        CprodutoJFrame pd = new CprodutoJFrame();
-        pd.setVisible(true);
+        orçamentos or = new orçamentos();
+        or.setVisible(true);
 
     }//GEN-LAST:event_PdutActionPerformed
 

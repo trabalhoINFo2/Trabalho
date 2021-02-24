@@ -76,7 +76,7 @@ public class orçamentos extends javax.swing.JFrame {
         jMenu6.setText("Edit");
         jMenuBar3.add(jMenu6);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Orçamentos");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
