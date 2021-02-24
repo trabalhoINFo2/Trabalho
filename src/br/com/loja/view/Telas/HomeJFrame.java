@@ -5,6 +5,14 @@
  */
 package br.com.loja.view.Telas;
 
+
+import br.com.loja.dao.UsuarioDao;
+import br.com.loja.entidade.Usuario;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario
@@ -28,8 +36,8 @@ public class HomeJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        usuario = new javax.swing.JTextField();
-        senha = new javax.swing.JTextField();
+        user = new javax.swing.JTextField();
+        snh = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         botaoentar = new javax.swing.JButton();
@@ -49,19 +57,20 @@ public class HomeJFrame extends javax.swing.JFrame {
         jLabel2.setText("Login");
         jLabel2.setPreferredSize(new java.awt.Dimension(69, 32));
 
-        usuario.setToolTipText("Usuário");
-        usuario.addActionListener(new java.awt.event.ActionListener() {
+        user.setToolTipText("Usuário");
+        user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioActionPerformed(evt);
+                userActionPerformed(evt);
             }
         });
 
-        senha.setToolTipText("Senha");
+        snh.setToolTipText("Senha");
 
         jLabel1.setText("Usuario");
 
         jLabel3.setText("Senha");
 
+        botaoentar.setBackground(new java.awt.Color(0, 153, 153));
         botaoentar.setText("Entrar");
         botaoentar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,6 +78,7 @@ public class HomeJFrame extends javax.swing.JFrame {
             }
         });
 
+        botaocadastro.setBackground(new java.awt.Color(255, 51, 51));
         botaocadastro.setText("Cadastrar");
         botaocadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,8 +98,8 @@ public class HomeJFrame extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel1)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(snh, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jLabel3))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -110,11 +120,11 @@ public class HomeJFrame extends javax.swing.JFrame {
                 .addGap(37, 37, 37)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(senha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(snh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(botaoentar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -125,17 +135,52 @@ public class HomeJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
+    private void userActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_usuarioActionPerformed
+    }//GEN-LAST:event_userActionPerformed
 
     private void botaoentarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoentarActionPerformed
-        // TODO add your handling code here:
+            
+            if(user.getText().equals("")||snh.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "Login ou Senha inválido.", "!! ERRO !!", JOptionPane.ERROR_MESSAGE);
+                snh.setText("");
+                
+            }else{
+                
+                Connection con = null;
+                            
+                UsuarioDao uDao = new UsuarioDao();
+                
+                
+                String a = user.getText();
+                String b = snh.getText();
+                
+                Usuario user = null;
+                try{
+                   user = uDao.loginSQL(a ,b);
+                }catch(SQLException ex){
+                     JOptionPane.showMessageDialog(null, "Erro ao consultar usuário: " + ex.getMessage() , "!! ERRO !!", JOptionPane.ERROR_MESSAGE);
+                }
+                
+                if(user!= null){
+                    dispose(); 
+                    PagprincipalJFrame pp = new PagprincipalJFrame();
+                     pp.setVisible(true); 
+                      
+                }else{
+                     JOptionPane.showMessageDialog(null, "Usuário não encontrado.", "!! Aviso !!", JOptionPane.WARNING_MESSAGE);
+                }
+                              
+            
+                
+            }
+            
+            
     }//GEN-LAST:event_botaoentarActionPerformed
 
     private void botaocadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaocadastroActionPerformed
-        CadastroUsuarioJFrame hm = new CadastroUsuarioJFrame();
-        hm.setVisible(true);
+        Cadastrousuario cd = new Cadastrousuario();
+        cd.setVisible(true);
     }//GEN-LAST:event_botaocadastroActionPerformed
 
     /**
@@ -179,7 +224,7 @@ public class HomeJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField senha;
-    private javax.swing.JTextField usuario;
+    private javax.swing.JTextField snh;
+    private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
 }
