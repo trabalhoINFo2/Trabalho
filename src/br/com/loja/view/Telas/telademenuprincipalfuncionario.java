@@ -16,12 +16,12 @@ import javax.swing.JOptionPane;
  *
  * @author hianf
  */
-public class telademenuprincipal extends javax.swing.JFrame {
+public class telademenuprincipalfuncionario extends javax.swing.JFrame {
 
     /**
      * Creates new form telademenuprincipal
      */
-    public telademenuprincipal() {
+    public telademenuprincipalfuncionario() {
         initComponents();
     }
 
@@ -81,24 +81,22 @@ public class telademenuprincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        telafuncionarioinserir jframe = new telafuncionarioinserir();
-        jframe.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-
-        String codStr = JOptionPane.showInputDialog("Informe o código do funcionário");
+        String codstr = JOptionPane.showInputDialog("informa o código do cliente...");
         int cod = 0;
-        if (codStr == null) {
-            //encerrar o procedimento sem fazer nada 
+
+        if (codstr == null) {
             return;
+            //encerrar sem fazer nada 
         }
 
         try {
-            cod = Integer.parseInt(codStr);
+
+            cod = Integer.parseInt(codstr);
+
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "O código informado não é um número válido...");
+
+            JOptionPane.showMessageDialog(this, "O código informado não é um número válido");
             return;
 
         }
@@ -107,26 +105,32 @@ public class telademenuprincipal extends javax.swing.JFrame {
         try {
             f = dao.consultarporcod(cod);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(this, "falha ao acessar o banco de dados "+ex.getMessage());
+          JOptionPane.showMessageDialog(this, "Falha na consulta ao banco de dados " +ex.getMessage());
             return;
-
-            
         }
+        
+        
+        
 
         if (f != null) {
-            //criar um frame do tipo "funcionarioalterar" no momento da criaçao deste frame passar o funcionario como parametro
-            telafuncionarioalterar frame =  new telafuncionarioalterar(f);
+            //criar um frame do tipo funcionario alterar j frame (interface) no momento, passar funcionario de parametro
+            
+            telafuncionarioalterar frame = new telafuncionarioalterar(f);
             frame.setVisible(true);
-          
             
 
         } else {
-            JOptionPane.showMessageDialog(this, "O código informado não corresponde a um dos clientes ...");
+            JOptionPane.showMessageDialog(this, "O código informado não corresponde a um dos funcionarios");
 
         }
 
 
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        telafuncionarioinserir jframe = new telafuncionarioinserir();
+        jframe.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,20 +149,21 @@ public class telademenuprincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(telademenuprincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telademenuprincipalfuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(telademenuprincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telademenuprincipalfuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(telademenuprincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telademenuprincipalfuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(telademenuprincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telademenuprincipalfuncionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new telademenuprincipal().setVisible(true);
+                new telademenuprincipalfuncionario().setVisible(true);
             }
         });
     }
