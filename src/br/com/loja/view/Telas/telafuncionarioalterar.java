@@ -93,7 +93,7 @@ public class telafuncionarioalterar extends javax.swing.JFrame {
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Nome :");
@@ -197,7 +197,6 @@ public class telafuncionarioalterar extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(0, 153, 153));
         jButton2.setText("alterar");
-        jButton2.setActionCommand("alterar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
