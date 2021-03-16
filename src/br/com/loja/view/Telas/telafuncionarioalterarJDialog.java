@@ -7,6 +7,7 @@ package br.com.loja.view.Telas;
 
 import br.com.loja.dao.FuncionarioDao;
 import br.com.loja.entidade.Funcionario;
+import java.awt.Frame;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -14,14 +15,53 @@ import javax.swing.JOptionPane;
  *
  * @author hianf
  */
-public class telafuncionarioinserir extends javax.swing.JFrame {
+public class telafuncionarioalterarJDialog extends javax.swing.JDialog {
 
+    private Funcionario f = null;
+    private Funcionario funcionarioalterado = null; 
+    
+    
+    public  Funcionario getFuncionarioalterado(){
+        return this.funcionarioalterado;
+    }
+    
+    
+    
     /**
      * Creates new form funcionarioinserir
      */
-    public telafuncionarioinserir() {
+    public telafuncionarioalterarJDialog(Frame owner ,Funcionario f) {
+       
+       
+        
+       super(owner, true );
+        this.f = f;
         initComponents();
+
+        if (f != null) {
+
+            jTextField11.setText(f.getCodigo() + "");
+            jTextField1.setText(f.getNome() + "");
+            jTextField9.setText(f.getCEP() + "");
+            jTextField4.setText(f.getTelefone() + "");
+            jTextField5.setText(f.getCidade() + "");
+            jTextField7.setText(f.getNumero() + "");
+            jTextField2.setText(f.getCpf() + "");
+            jTextField3.setText(f.getIdade() + "");
+            jTextField6.setText(f.getBairro() + "");
+            jTextField8.setText(f.getUF() + "");
+
+        }
+
     }
+    
+
+         
+             
+         
+              
+        
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,6 +99,9 @@ public class telafuncionarioinserir extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -73,95 +116,95 @@ public class telafuncionarioinserir extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Nome");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
+        jLabel1.setText("Nome :");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 260, -1));
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 80, 260, 30));
 
         jLabel2.setText("CPF :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, -1));
 
         jLabel3.setText("Idade :");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, -1, -1));
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 120, 30));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 120, 30));
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, 120, 30));
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 120, 30));
 
         jLabel4.setText("Telefone :");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, 20));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, 20));
 
         jLabel5.setText("Cidade :");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 120, 30));
+        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 120, 30));
 
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 120, 30));
+        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 120, 30));
 
         jLabel6.setText("Bairro :");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, -1, 10));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, -1, 10));
 
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 120, 30));
+        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 120, 30));
 
         jLabel7.setText("UF :");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 20, 10));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 30, 10));
 
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField7ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, 120, 30));
+        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 120, 30));
 
         jLabel8.setText("Número :");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
         jLabel9.setText("CEP :");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
         jTextField8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField8ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 120, 30));
+        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 120, 30));
 
         jTextField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField9ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 120, 30));
+        getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 120, 30));
 
         jButton1.setBackground(new java.awt.Color(255, 51, 51));
         jButton1.setText("cancelar");
@@ -173,7 +216,7 @@ public class telafuncionarioinserir extends javax.swing.JFrame {
         jPanel1.add(jButton1);
 
         jButton2.setBackground(new java.awt.Color(0, 153, 153));
-        jButton2.setText("inserir");
+        jButton2.setText("alterar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -183,8 +226,21 @@ public class telafuncionarioinserir extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 350, 50));
 
-        jLabel10.setText("INSERÇÃO DE FUNCIONÁRIOS");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+        jLabel10.setText("ALTERAÇAO DE FUNCIONÁRIOS");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, -1, 20));
+
+        jLabel11.setText("Código : ");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        jTextField10.setText("jTextField10");
+        getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 0));
+
+        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField11ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 260, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -223,8 +279,6 @@ public class telafuncionarioinserir extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-
-        
         String nome = jTextField1.getText();
         String cpf = jTextField2.getText();
         String idade = jTextField3.getText();
@@ -234,39 +288,37 @@ public class telafuncionarioinserir extends javax.swing.JFrame {
         String numero = jTextField7.getText();
         String uf = jTextField8.getText();
         String cep = jTextField9.getText();
-        
-        
-        
-        
-         Funcionario f = new Funcionario();
-                f.setNome(nome);
-                f.setIdade(idade);
-                f.setBairro(bairro);
-                f.setCEP(cep);
-                f.setCidade(cidade);
-                f.setCpf(cpf);
-                f.setNumero(numero);
-                f.setTelefone(telefone);
-                f.setUF(uf);
-                
-                //FuncionarioDaoAnt cDao= new FuncionarioDaoAnt();
-                FuncionarioDao fDao = new FuncionarioDao();
-                try{
-                    fDao.inserir(f);
-            } catch (SQLException ex) {
-                   String msg = "não foi possivel inserir o funcionário...";
-                   msg = msg + "falha na comunicação com o banco de dados...";
-                   msg = msg + ex.getMessage();
-                   
-                    JOptionPane.showMessageDialog(this,msg);
-            }
 
-                
-                this.setVisible(false);
-                this.dispose();
-                
-                
-                
+        Funcionario f = new Funcionario();
+        f.setCodigo(this.f.getCodigo());
+        f.setNome(nome);
+        f.setIdade(idade);
+        f.setBairro(bairro);
+        f.setCEP(cep);
+        f.setCidade(cidade);
+        f.setCpf(cpf);
+        f.setNumero(numero);
+        f.setTelefone(telefone);
+        f.setUF(uf);
+
+        //FuncionarioDaoAnt cDao= new FuncionarioDaoAnt();
+        FuncionarioDao fDao = new FuncionarioDao();
+        try {
+            fDao.alterar(f);
+            
+            this.funcionarioalterado= f;
+        } catch (SQLException ex) {
+            String msg = "não foi possivel alterar o funcionário...";
+            msg = msg + "falha na comunicação com o banco de dados...";
+            msg = msg + ex.getMessage();
+
+            JOptionPane.showMessageDialog(this, msg);
+        }
+
+        this.setVisible(false);
+        this.dispose();
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
@@ -278,10 +330,11 @@ public class telafuncionarioinserir extends javax.swing.JFrame {
         this.dispose();
 
 
-
-
-        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -300,21 +353,27 @@ public class telafuncionarioinserir extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(telafuncionarioinserir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telafuncionarioalterarJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(telafuncionarioinserir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telafuncionarioalterarJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(telafuncionarioinserir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telafuncionarioalterarJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(telafuncionarioinserir.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telafuncionarioalterarJDialog.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new telafuncionarioinserir().setVisible(true);
+                new telafuncionarioalterarJDialog(null,null).setVisible(true);
             }
         });
     }
@@ -325,6 +384,7 @@ public class telafuncionarioinserir extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -339,6 +399,8 @@ public class telafuncionarioinserir extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;

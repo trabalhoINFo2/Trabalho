@@ -28,9 +28,13 @@ public class FuncionarioDao extends Dao {
     private String consultarporcodSQL
             = " select * from  funcionario "
             + " where cod = ? ";
+    
+     private String consultarpornomeSQL
+            = " select * from  funcionario "
+            + " where nome like ? ";
 
     private String consultartodosSQL
-            = " select * from Funcionario";
+            = " select * from funcionario";
 
     private String excluirSQL
             = " delete from funcionario "
@@ -45,6 +49,8 @@ public class FuncionarioDao extends Dao {
             + "     cidade = ?, "
             + "     uf = ? "
             + " where cod = ? ";
+    
+    
 
     public void inserir(Funcionario f) throws SQLException {
 
@@ -108,6 +114,49 @@ public class FuncionarioDao extends Dao {
         }
         return f;
     }
+     public List<Funcionario> consultarpornome(String nome) throws SQLException {
+        List<Funcionario> ret = new ArrayList<Funcionario>();
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+
+            conn = getConnection();
+            ps = conn.prepareStatement(consultarpornomeSQL);
+            ps.setString(1, nome + "%" );
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Funcionario f = new Funcionario();
+                f.setCodigo(rs.getInt("cod"));
+                f.setNome(rs.getString("nome"));
+                f.setCpf(rs.getString("cpf"));
+                f.setNumero(rs.getString("numero"));
+                f.setBairro(rs.getString("bairro"));
+                f.setCidade(rs.getString("cidade"));
+                f.setUF(rs.getString("uf"));
+
+                ret.add(f);
+            }
+
+        } catch (SQLException ex) {
+            throw ex;
+           
+        } finally {
+            closeps(ps);
+            closeConnection(conn);
+        }
+
+        return ret;
+    }
+
+    
+    
+    
+    
 
     public List<Funcionario> consultatodos() throws SQLException {
         List<Funcionario> ret = new ArrayList<Funcionario>();

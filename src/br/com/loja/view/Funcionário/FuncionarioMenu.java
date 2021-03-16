@@ -5,7 +5,7 @@
  */
 package br.com.loja.view.Funcionário;
 
-import br.com.loja.view.Telas.telafuncionarioinserir;
+import br.com.loja.view.Telas.telafuncionarioinserirJDialog;
 import java.util.Scanner;
 
 /**
@@ -40,8 +40,8 @@ public class FuncionarioMenu {
             if (opc == 0) {
                 //FuncionarioInserir tela = new FuncionarioInserir();
                 //tela.executar();
-                telafuncionarioinserir frame = new telafuncionarioinserir();
-                frame.setVisible(true);
+            //    telafuncionarioinserirJDialog frame = new telafuncionarioinserirJDialog();
+              //  frame.setVisible(true);
                 
             } else if (opc == 1) {
                 FuncionarioExcluir tela = new FuncionarioExcluir();

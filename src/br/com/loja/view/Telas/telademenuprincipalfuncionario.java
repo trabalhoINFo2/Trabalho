@@ -38,6 +38,7 @@ public class telademenuprincipalfuncionario extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -46,7 +47,7 @@ public class telademenuprincipalfuncionario extends javax.swing.JFrame {
         jMenu3.setText("Funcionário");
         jMenu3.setActionCommand("lojaatendefacil");
 
-        jMenuItem1.setText("inserir");
+        jMenuItem1.setText("Inserir");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -54,13 +55,21 @@ public class telademenuprincipalfuncionario extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem1);
 
-        jMenuItem2.setText("alterar");
+        jMenuItem2.setText("Alterar");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
             }
         });
         jMenu3.add(jMenuItem2);
+
+        jMenuItem3.setText("CRUD");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem3);
 
         jMenuBar2.add(jMenu3);
         jMenuBar2.add(jMenu4);
@@ -110,12 +119,12 @@ public class telademenuprincipalfuncionario extends javax.swing.JFrame {
         }
         
         
-        
+         
 
         if (f != null) {
             //criar um frame do tipo funcionario alterar j frame (interface) no momento, passar funcionario de parametro
             
-            telafuncionarioalterar frame = new telafuncionarioalterar(f);
+            telafuncionarioalterarJDialog frame = new telafuncionarioalterarJDialog(this,f);
             frame.setVisible(true);
             
 
@@ -128,9 +137,18 @@ public class telademenuprincipalfuncionario extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        telafuncionarioinserir jframe = new telafuncionarioinserir();
-        jframe.setVisible(true);
+        telafuncionarioinserirJDialog dialog = new telafuncionarioinserirJDialog(this);
+        dialog.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        try {
+            telafuncionarioconsultar frame = new telafuncionarioconsultar();
+            frame.setVisible(true);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Erro ao cadastrar todos os funcionarios  " +ex.getMessage());
+        }
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,5 +192,6 @@ public class telademenuprincipalfuncionario extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 }
