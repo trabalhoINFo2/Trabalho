@@ -6,6 +6,7 @@
 package br.com.loja.dao;
 
 import br.com.loja.entidade.Cliente;
+import br.com.loja.entidade.Produto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,8 +20,8 @@ import java.util.List;
  * @author Guilherme
  */
 public class ClienteDao extends Dao {
-    
-     private String insertSQL
+
+    private String insertSQL
             = " insert into cliente "
             + " ( nome, idade, cpf ,numero, bairro, cidade, uf) "
             + " values (?, ?, ?, ?, ?, ?, ?)";
@@ -31,6 +32,10 @@ public class ClienteDao extends Dao {
 
     private String consultartodosSQL
             = " select * from cliente";
+    
+    private String consultarPorNomeSQL
+            = " select * from  cliente "
+            + " where nome like ? ";
 
     private String excluirSQL
             = " delete from cliente "
@@ -39,7 +44,7 @@ public class ClienteDao extends Dao {
     private String alterarSQL
             = " update cliente "
             + " set nome = ?, "
-            +"      idade =, "
+            + "      idade =, "
             + "     cpf = ?, "
             + "     numero = ?, "
             + "     bairro = ?, "
@@ -76,7 +81,7 @@ public class ClienteDao extends Dao {
 
     public Cliente consultarporcod(int cod) throws SQLException {
         Cliente c = null;
-        
+
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -110,6 +115,45 @@ public class ClienteDao extends Dao {
             closeConnection(conn);
         }
         return c;
+    }
+    
+    public List<Cliente> consultarPorNome(String nome) throws SQLException {
+        List<Cliente> ret = new ArrayList<Cliente>();
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try {
+
+            conn = getConnection();
+            ps = conn.prepareStatement(consultarPorNomeSQL);
+            ps.setString(1, nome + "%");
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                 Cliente c = new Cliente();
+                c.setCod(rs.getInt("cod"));
+                c.setNome(rs.getString("nome"));
+                c.setNascimento("idade");
+                c.setCpf(rs.getString("cpf"));
+                c.setNumero(rs.getString("numero"));
+                c.setBairro(rs.getString("bairro"));
+                c.setCidade(rs.getString("cidade"));
+                c.setUF(rs.getString("uf"));
+
+                ret.add(c);
+            }
+
+        } catch (SQLException ex) {
+            throw ex;
+
+        } finally {
+            closeps(ps);
+            closeConnection(conn);
+        }
+
+        return ret;
     }
 
     public List<Cliente> consultatodos() throws SQLException {
@@ -192,17 +236,14 @@ public class ClienteDao extends Dao {
             ps.setInt(8, c.getCod());
             ps.executeUpdate();
 
-        
         } catch (SQLException ex) {
             throw ex;
-            
+
         } finally {
             closeps(ps);
             closeConnection(conn);
         }
 
+    }
 
-    
-}
-    
 }

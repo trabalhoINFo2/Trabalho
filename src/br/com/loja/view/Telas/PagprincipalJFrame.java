@@ -5,6 +5,11 @@
  */
 package br.com.loja.view.Telas;
 
+import br.com.loja.JView.JFrameMenuProduto;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Guilherme
@@ -75,10 +80,10 @@ public class PagprincipalJFrame extends javax.swing.JFrame {
         });
 
         jButton3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jButton3.setText("Reservado");
+        jButton3.setText("Produtos");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                MenuProduto(evt);
             }
         });
 
@@ -148,16 +153,24 @@ public class PagprincipalJFrame extends javax.swing.JFrame {
         tp.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void MenuProduto(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuProduto
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+        JFrameMenuProduto mp = null;
+        try {
+            mp = new JFrameMenuProduto();
+        } catch (SQLException ex) {
+            Logger.getLogger(PagprincipalJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        mp.setVisible(true);
+
+    }//GEN-LAST:event_MenuProduto
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void PdutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PdutActionPerformed
-        
+
         orçamentos or = new orçamentos();
         or.setVisible(true);
 
