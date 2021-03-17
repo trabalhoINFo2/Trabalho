@@ -260,4 +260,4 @@ public class FuncionarioDao extends Dao {
 
 }
 
-// ta mec
+// ta  pronto ;)
