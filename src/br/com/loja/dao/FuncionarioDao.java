@@ -22,8 +22,8 @@ public class FuncionarioDao extends Dao {
 
     private String insertSQL
             = " insert into funcionario "
-            + " ( nome, cpf ,numero, bairro, cidade, uf) "
-            + " values (?, ?, ?, ?, ?, ?)";
+            + " ( nome, cpf ,numero, bairro, cidade, uf,idade) "
+            + " values (?, ?, ?, ?, ?, ?,?)";
 
     private String consultarporcodSQL
             = " select * from  funcionario "
@@ -48,6 +48,7 @@ public class FuncionarioDao extends Dao {
             + "     bairro = ?, "
             + "     cidade = ?, "
             + "     uf = ? "
+            + "    idade =?"
             + " where cod = ? ";
     
     
@@ -66,6 +67,7 @@ public class FuncionarioDao extends Dao {
             ps.setString(4, f.getBairro());
             ps.setString(5, f.getCidade());
             ps.setString(6, f.getUF());
+            ps.setString(7, f.getIdade());
 
             ps.executeUpdate();
 
@@ -102,6 +104,7 @@ public class FuncionarioDao extends Dao {
                 f.setBairro(rs.getString("bairro"));
                 f.setCidade(rs.getString("cidade"));
                 f.setUF(rs.getString("uf"));
+                f.setIdade(rs.getString("idade"));
 
             }
 
@@ -138,6 +141,7 @@ public class FuncionarioDao extends Dao {
                 f.setBairro(rs.getString("bairro"));
                 f.setCidade(rs.getString("cidade"));
                 f.setUF(rs.getString("uf"));
+                f.setIdade(rs.getString("idade"));
 
                 ret.add(f);
             }
@@ -181,6 +185,8 @@ public class FuncionarioDao extends Dao {
                 f.setBairro(rs.getString("bairro"));
                 f.setCidade(rs.getString("cidade"));
                 f.setUF(rs.getString("uf"));
+                 f.setIdade(rs.getString("idade"));
+                
 
                 ret.add(f);
             }
@@ -234,6 +240,8 @@ public class FuncionarioDao extends Dao {
             ps.setString(5, f.getCidade());
             ps.setString(6, f.getUF());
             ps.setInt(7, f.getCodigo());
+            ps.setString(8, f.getIdade());
+            
             ps.executeUpdate();
 
         

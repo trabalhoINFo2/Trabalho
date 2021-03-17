@@ -35,17 +35,23 @@ public class telafuncionarioconsultar extends javax.swing.JFrame {
 
     private void preenchertable(List<Funcionario> funcionarioList) {
         //configurar cabeçalho
-        String[] cabecalho = new String[]{"Codigo", "Nome", "CPF"};
+        String[] cabecalho = new String[]{"Codigo", "Nome", "CPF" ,"Número" , "Bairro" ,"Cidade" , "UF", "Idade"};
 
         //preencher dados na matriz que foi feita em formato de string
-        String[][] conteudo = new String[funcionarioList.size()][3];
+        String[][] conteudo = new String[funcionarioList.size()][8];
 
         //preencher dados na matriz
         for (int i = 0; i < funcionarioList.size(); i++) {
             Funcionario f = funcionarioList.get(i);
-            conteudo[i][0] = f.getCodigo() + "";
-            conteudo[i][1] = f.getNome();
-            conteudo[i][2] = f.getCpf();
+            conteudo[i][0] = f.getCodigo() +"";
+            conteudo[i][1] = f.getNome() ;
+            conteudo[i][2] = f.getCpf() ;
+            conteudo[i][3] = f.getNumero() +"";
+            conteudo[i][4] = f.getBairro()+"";
+            conteudo[i][5] = f.getCidade()+"";
+            conteudo[i][6] = f.getUF()+"";
+            conteudo[i][7] = f.getIdade()+"";
+            
 
         }
 
@@ -184,7 +190,7 @@ public class telafuncionarioconsultar extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 530, 230));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 530, 230));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
