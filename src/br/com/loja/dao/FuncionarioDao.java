@@ -47,8 +47,8 @@ public class FuncionarioDao extends Dao {
             + "     numero = ?, "
             + "     bairro = ?, "
             + "     cidade = ?, "
-            + "     uf = ? "
-            + "    idade =?"
+            + "     uf = ?, "
+            + "    idade =? "
             + " where cod = ? ";
     
     
